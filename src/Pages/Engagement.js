@@ -2,7 +2,7 @@ import React, { useRef, useEffect } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay } from "swiper/modules";
 import "swiper/css";
-import "swiper/css/scrollbar";
+// import "swiper/css/scrollbar";
 
 const Engagement = () => {
 	useEffect(() => {
@@ -15,6 +15,7 @@ const Engagement = () => {
 		}
 	}, []);
 	const swiperRef = useRef();
+	const swiperRef2 = useRef();
 
 	const mediaImages = [
 		"https://www.sydney.edu.au/content/dam/campus-facilities-and-amenities/research-facilities/yellow-light-nano-clean-room.jpg/jcr:content/renditions/cq5dam.web.800.1173.2x.jpeg",
@@ -160,7 +161,7 @@ const Engagement = () => {
 						</div>
 						<div className="flex items-center justify-center gap-3">
 							<button
-								onClick={() => swiperRef.current?.slidePrev()}
+								onClick={() => swiperRef2.current?.slidePrev()}
 								className="swiper-button-prev w-8 h-8 lg:w-12 lg:h-12 rounded-full flex items-center justify-center bg-primary-500/50 hover:bg-primary-500"
 							>
 								<svg
@@ -178,7 +179,7 @@ const Engagement = () => {
 								</svg>
 							</button>
 							<button
-								onClick={() => swiperRef.current?.slideNext()}
+								onClick={() => swiperRef2.current?.slideNext()}
 								className="swiper-button-next w-8 h-8 lg:w-12 lg:h-12 rounded-full flex items-center justify-center bg-primary-500/50 hover:bg-primary-500"
 							>
 								<svg
@@ -215,7 +216,7 @@ const Engagement = () => {
 							disableOnInteraction: false,
 						}}
 						onBeforeInit={(swiper) => {
-							swiperRef.current = swiper;
+							swiperRef2.current = swiper;
 						}}
 						loop={true}
 						modules={[Autoplay]}
