@@ -154,7 +154,19 @@ const People = () => {
 	);
 
 	return (
-		<div className="flex flex-col items-center mb-16 mt-12 px-8 w-full font-Open-sans">
+		<div className="flex flex-col items-center mb-16 w-full font-Open-sans">
+			{/* <div className="fixed w-screen h-screen top-0 left-0 bg-blob -z-0" /> */}
+			<div className="w-full h-screen bg-[linear-gradient(to_bottom,rgba(0,0,0,0),rgba(0,0,0,1)),url('https://exe-coll.ac.uk/wp-content/uploads/2021/11/CMI-header.png')] bg-cover bg-no-repeat bg-center text-white flex flex-col justify-end border-b-4 border-primary-500">
+				<div className="py-20 max-w-6xl mx-auto flex flex-col gap-8">
+					<p className="text-6xl italic font-Nunito">People</p>
+					<div className="h-[5px] w-[12%] bg-primary-500"></div>
+					<p className="text-2xl font-normal leading-10 w-[50%]">
+						Our researchers are tackling the world’s greatest
+						problems, from creating a more sustainable world to
+						developing new treatments for chronic diseases.
+					</p>
+				</div>
+			</div>
 			<div
 				id="senior-leadership"
 				className="flex flex-col items-start md:items-center max-w-6xl mx-auto w-full pt-16 pb-4"

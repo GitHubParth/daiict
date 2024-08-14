@@ -21,3 +21,9 @@ code {
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.bg-blob {
+	background: url('../public/images/bg-blob.png') no-repeat;
+	background-size: cover;
+	background-position: center;
+}

@@ -1,4 +1,4 @@
-import React, { useRef } from "react";
+import React, { useRef, useEffect } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import "swiper/css/scrollbar";
@@ -6,6 +6,15 @@ import "swiper/css/scrollbar";
 import GridCards from "../Components/GridCards";
 
 const HomePage = () => {
+	useEffect(() => {              
+		const href = window.location.href.substring(
+			window.location.href.lastIndexOf("#") + 1
+		);
+		const element = document.getElementById(href);
+		if (element) {
+			element.scrollIntoView({ behavior: "smooth" });
+		}
+	}, []);
 	const swiperRef = useRef();
 
 	const aboutUsData = [

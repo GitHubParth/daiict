@@ -30,7 +30,7 @@ const Navbar = () => {
 		},
 		{
 			title: "Research ▾",
-			link: "#research-project",
+			link: "/#research-project",
 			submenus: [
 				["project scheme 1", "/project/project-scheme-1"],
 				["project scheme 2", "/project/project-scheme-2"],
@@ -49,11 +49,11 @@ const Navbar = () => {
 		},
 		{
 			title: "Work With Us ▾",
-			link: "/",
+			link: "/work-with-us",
 			submenus: [
-				["research fellow", "#"],
-				["project interns", "#"],
-				["staff", "#"],
+				["research fellow", "/work-with-us#research-fellows"],
+				["project interns", "/work-with-us#project-interns"],
+				["staff", "/work-with-us#staff"],
 			],
 		},
 		{

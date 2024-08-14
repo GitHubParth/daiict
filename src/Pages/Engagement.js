@@ -41,12 +41,12 @@ const Engagement = () => {
 			desc: "The Australian Research Council has awarded $5.15m to industry projects at the University, along with funding for an Industrial Transformation Training Centre to prepare leaders of Australia's future quantum computing industry.",
 		},
 		{
-			image: "https://www.sydney.edu.au/content/dam/people/sam-banister-(right)-josh-ismin-(left)-psylo-high-res.jpg/jcr:content/renditions/cq5dam.web.800.533.2x.jpeg",
+			image: "https://images.pexels.com/photos/22708188/pexels-photo-22708188/free-photo-of-man-fishing-on-seashore-with-dog.jpeg?auto=compress&cs=tinysrgb&w=1080&lazy=load",
 			name: "New psychedelic treatments for mental health",
 			desc: "University of Sydney researchers have partnered with Psylo, a global biotechnology startup, to develop innovative treatments for psychiatric and neurological disorders.",
 		},
 		{
-			image: "https://www.sydney.edu.au/content/dam/corporate/images/faculty-of-arts-and-social-sciences/research/research-centres/sssharc/new-law-school-building.jpg/jcr:content/renditions/cq5dam.web.800.533.2x.jpeg",
+			image: "https://images.pexels.com/photos/22741670/pexels-photo-22741670/free-photo-of-clock-with-digits-on-wall.jpeg?auto=compress&cs=tinysrgb&w=1080&lazy=load",
 			name: "ARC invests in research partnerships with industry",
 			desc: "The Australian Research Council has awarded $5.15m to industry projects at the University, along with funding for an Industrial Transformation Training Centre to prepare leaders of Australia's future quantum computing industry.",
 		},
@@ -208,7 +208,7 @@ const Engagement = () => {
 								slidesPerView: 2,
 							},
 							1024: {
-								slidesPerView: 2,
+								slidesPerView: 3,
 							},
 						}}
 						autoplay={{
@@ -229,16 +229,16 @@ const Engagement = () => {
 							>
 								<div
 									key={index}
-									className="w-full min-h-[500px] max-h-[500px] group"
+									className="w-full group"
 								>
-									<div className="w-full h-[80%] overflow-hidden">
+									<div className="w-full h-[70%] overflow-hidden">
 										<img
 											src={item.image}
 											alt=""
 											className="w-full h-full object-cover group-hover:scale-105 transition-all duration-300"
 										/>
 									</div>
-									<div className="h-[20%] flex flex-col justify-evenly">
+									<div className="h-[30%] flex flex-col justify-evenly">
 										<div className="flex flex-col gap-0.5 mt-4">
 											<p className="text-2xl font-semibold group-hover:text-primary-500 truncate transition-all duration-300">
 												{item.name}
@@ -248,6 +248,21 @@ const Engagement = () => {
 										<p className="line-clamp-2 mt-3">
 											{item.desc}
 										</p>
+										<div className="mt-5 font-semibold flex items-center gap-2 justify-end">
+											<svg
+												xmlns="http://www.w3.org/2000/svg"
+												width={16}
+												height={16}
+												fill="currentColor"
+												className="bi bi-calendar2-event group-hover:underline group-hover:text-primary-500 transition-all duration-300"
+												viewBox="0 0 16 16"
+											>
+												<path d="M11 7.5a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5z" />
+												<path d="M3.5 0a.5.5 0 0 1 .5.5V1h8V.5a.5.5 0 0 1 1 0V1h1a2 2 0 0 1 2 2v11a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V3a2 2 0 0 1 2-2h1V.5a.5.5 0 0 1 .5-.5M2 2a1 1 0 0 0-1 1v11a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V3a1 1 0 0 0-1-1z" />
+												<path d="M2.5 4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5H3a.5.5 0 0 1-.5-.5z" />
+											</svg>
+											<p className="group-hover:underline group-hover:text-primary-500 transition-all duration-300">01/01/2000</p>
+										</div>
 									</div>
 								</div>
 							</SwiperSlide>
@@ -270,19 +285,19 @@ const Engagement = () => {
 						</div>
 						<div className="w-full h-full aspect-square rounded-xl px-7 border flex flex-col gap-5 items-start justify-center group hover:border-primary-500 hover:shadow-[0_0_60px_0_rgba(0,0,0,.07)] transition-all duration-300">
 							<p className="text-4xl font-bold group-hover:text-primary-500 transition-all duration-300">
-								1492
+								52
 							</p>
 							<p>Laboratories in 100+ states</p>
 						</div>
 						<div className="w-full h-full aspect-square rounded-xl px-7 border flex flex-col gap-5 items-start justify-center group hover:border-primary-500 hover:shadow-[0_0_60px_0_rgba(0,0,0,.07)] transition-all duration-300">
 							<p className="text-4xl font-bold group-hover:text-primary-500 transition-all duration-300">
-								1492
+								1256
 							</p>
 							<p>Laboratories in 100+ states</p>
 						</div>
 						<div className="w-full h-full aspect-square rounded-xl px-7 border flex flex-col gap-5 items-start justify-center group hover:border-primary-500 hover:shadow-[0_0_60px_0_rgba(0,0,0,.07)] transition-all duration-300">
 							<p className="text-4xl font-bold group-hover:text-primary-500 transition-all duration-300">
-								1492
+								560
 							</p>
 							<p>Laboratories in 100+ states</p>
 						</div>

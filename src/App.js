@@ -11,6 +11,7 @@ import People from "./Pages/People";
 import ProjectDetails from "./Pages/ProjectDetails";
 import AboutUs from "./Pages/AboutUs";
 import Engagement from "./Pages/Engagement";
+import WorkWithUs from "./Pages/WorkWithUs"
 import ContactUs from "./Pages/ContactUs";
 
 const App = () => {
@@ -23,6 +24,7 @@ const App = () => {
                 <Route path="/people" element={<People />} />
                 <Route path="/project/:project" element={<ProjectDetails />} />
                 <Route path="/engagement" element={<Engagement />} />
+                <Route path="/work-with-us" element={<WorkWithUs />} />
                 <Route path="/contact-us" element={<ContactUs />} />
             </Routes>
 			<Footer />
