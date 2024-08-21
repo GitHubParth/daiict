@@ -54,7 +54,7 @@ const Engagement = () => {
 
 	return (
 		<div className="w-full">
-			<div className="w-full h-screen bg-[linear-gradient(to_bottom,rgba(0,0,0,0),rgba(0,0,0,1)),url('https://www.sydney.edu.au/content/dam/bms/_33i6564.jpg')] bg-cover bg-no-repeat bg-center text-white flex flex-col justify-end border-b-4 border-primary-500">
+			{/* <div className="w-full h-screen bg-[linear-gradient(to_bottom,rgba(0,0,0,0),rgba(0,0,0,1)),url('https://www.sydney.edu.au/content/dam/bms/_33i6564.jpg')] bg-cover bg-no-repeat bg-center text-white flex flex-col justify-end border-b-4 border-primary-500">
 				<div className="py-20 max-w-6xl mx-auto flex flex-col gap-8">
 					<p className="text-6xl italic font-Nunito">Engagement</p>
 					<div className="h-[5px] w-[12%] bg-primary-500"></div>
@@ -64,8 +64,8 @@ const Engagement = () => {
 						developing new treatments for chronic diseases.
 					</p>
 				</div>
-			</div>
-			<div className="max-w-6xl h-full mx-auto py-20">
+			</div> */}
+			<div className="max-w-6xl h-full mx-auto py-10">
 				<div id="media" className="flex flex-col gap-10 py-24">
 					<div className="flex items-center justify-between">
 						<div className="flex flex-col gap-4">
@@ -212,7 +212,7 @@ const Engagement = () => {
 							},
 						}}
 						autoplay={{
-							delay: 2000,
+							delay: 2100,
 							disableOnInteraction: false,
 						}}
 						onBeforeInit={(swiper) => {

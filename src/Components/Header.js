@@ -19,7 +19,7 @@ const Navbar = () => {
 			],
 		},
 		{
-			title: "People ▾",
+			title: "Our Team ▾",
 			link: "/people",
 			submenus: [
 				["senior leadership", "/people#senior-leadership"],
@@ -56,11 +56,6 @@ const Navbar = () => {
 				["staff", "/work-with-us#staff"],
 			],
 		},
-		{
-			title: "Contact Us",
-			link: "/contact-us",
-			submenus: [],
-		},
 	];
 
 	return (
@@ -75,10 +70,8 @@ const Navbar = () => {
 						alt=""
 						className="h-full object-cover opacity-75"
 					/>
-					<p className="text-lg font-Open-sans font-bold leading-tight">
-						Smart Energy
-						<br />
-						Learning Centre
+					<p className="text-3xl text-primary-1000 font-Open-sans font-bold leading-tight">
+						Smart Energy Learning Centre
 					</p>
 				</Link>
 				<div className="lg:flex hidden items-center justify-between h-full px-5 bg-white">
@@ -91,19 +84,19 @@ const Navbar = () => {
 								>
 									<a
 										href={item?.link}
-										className="uppercase text-sm font-semibold h-full flex items-center justify-center"
+										className="uppercase text-base font-semibold h-full flex items-center justify-center group-hover:text-primary-500 transition-all duration-300"
 									>
 										{item?.title}
 									</a>
 									<div className="absolute bottom-6 left-0 h-[2px] w-0 bg-primary-500 group-hover:w-full transition-all duration-300"></div>
 									{item?.submenus?.length > 0 && (
-										<div className="absolute top-full -z-50 left-0 min-w-20 w-max bg-primary-600 text-white p-5 px-6 opacity-0 origin-bottom -translate-y-full group-hover:opacity-100 hover:opacity-100 group-hover:translate-y-0 hover:translate-y-0  transition-all duration-300">
+										<div className="absolute top-full -z-50 left-0 min-w-20 w-max bg-[rgba(0,0,0,0.8)] text-white p-5 px-6 opacity-0 origin-bottom -translate-y-full group-hover:opacity-100 hover:opacity-100 group-hover:translate-y-0 hover:translate-y-0 transition-all duration-[0.4s]">
 											<ul className="flex flex-col gap-2">
 												{item?.submenus?.map(
 													(submenu, subIndex) => (
 														<li
 															key={subIndex}
-															className="hover:text-secondaryGreen capitalize transition-all duration-300"
+															className="hover:text-primary-500 capitalize transition-all duration-300"
 														>
 															<a
 																href={

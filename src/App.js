@@ -25,7 +25,7 @@ const App = () => {
                 <Route path="/project/:project" element={<ProjectDetails />} />
                 <Route path="/engagement" element={<Engagement />} />
                 <Route path="/work-with-us" element={<WorkWithUs />} />
-                <Route path="/contact-us" element={<ContactUs />} />
+                <Route path="*" element={<h1 className="py-[7.25rem] mt-20 text-primary-600 text-center text-6xl font-bold font-Open-sans">Page not found</h1>} />
             </Routes>
 			<Footer />
         </Router>

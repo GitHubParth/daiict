@@ -30,8 +30,8 @@ const WorkWithUs = () => {
     ]
 
 	return (
-		<div className="w-full font-Open-sans">
-			<div className="w-full h-screen bg-[linear-gradient(to_bottom,rgba(0,0,0,0),rgba(0,0,0,1)),url('https://images.pexels.com/photos/1181408/pexels-photo-1181408.jpeg?auto=compress&cs=tinysrgb&w=1080&lazy=load')] bg-cover bg-no-repeat bg-center text-white flex flex-col justify-end border-b-4 border-primary-500">
+		<div className="w-full font-Open-sans pt-10">
+			{/* <div className="w-full h-screen bg-[linear-gradient(to_bottom,rgba(0,0,0,0),rgba(0,0,0,1)),url('https://images.pexels.com/photos/1181408/pexels-photo-1181408.jpeg?auto=compress&cs=tinysrgb&w=1080&lazy=load')] bg-cover bg-no-repeat bg-center text-white flex flex-col justify-end border-b-4 border-primary-500">
 				<div className="py-20 max-w-6xl mx-auto flex flex-col gap-8">
 					<p className="text-6xl italic font-Nunito">Work With Us</p>
 					<div className="h-[5px] w-[12%] bg-primary-500"></div>
@@ -41,7 +41,8 @@ const WorkWithUs = () => {
 						developing new treatments for chronic diseases.
 					</p>
 				</div>
-			</div>
+			</div> */}
+            {/* <h1 className="w-full max-w-6xl mx-auto text-7xl font-bold mt-20 pt-20 text-primary-600">Work With Us</h1> */}
 			<div id="research-fellows" className="max-w-6xl w-full h-full mx-auto md:pt-14 lg:px-0 md:px-12 sm:px-10 px-8">
                 <h1 className="text-4xl w-full leading-tight sm:leading-normal sm:text-5xl font-bold mt-7 mb-10 md:mb-14 relative before:w-32 before:absolute before:h-1 before:bg-primary-500 before:-bottom-3 before:left-1">
 					Research Fellows
@@ -81,7 +82,7 @@ const WorkWithUs = () => {
                 </div>
 			</div>
 			<div id="staff" className="max-w-6xl w-full h-full mx-auto md:pt-14 pt-12 mb-20 lg:px-0 md:px-12 sm:px-10 px-8">
-                <h1 className="text-4xl w-full leading-tight sm:leading-normal sm:text-5xl font-bold mt-7 mb-10 md:mb-14 relative before:w-32 before:absolute before:h-1 before:bg-primary-500 before:-bottom-3 before:left-1">
+                <h1 className="text-4xl w-full leading-tight sm:leading-normal sm:text-5xl font-bold mt-7 mb-10 md:mb-14 relative before:w-12 before:absolute before:h-1 before:bg-primary-500 before:-bottom-3 before:left-1">
 					Staff
 				</h1>
                 <div className="w-full last:border-b last:border-gray-400">

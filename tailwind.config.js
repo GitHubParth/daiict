@@ -15,6 +15,7 @@ module.exports = {
         'primary-800': '#962e16',
         'primary-900': '#792815',
         'primary-950': '#411209',
+        'primary-1000': '#0f9cff',
       },
       backgroundColor: {
         'primary-50': '#fef6ee',
@@ -28,6 +29,20 @@ module.exports = {
         'primary-800': '#962e16',
         'primary-900': '#792815',
         'primary-950': '#411209',
+      },
+      borderColor: {
+        'primary-50': '#fef6ee',
+        'primary-100': '#feebd6',
+        'primary-200': '#fcd2ac',
+        'primary-300': '#f9b278',
+        'primary-400': '#f68841',
+        'primary-500': '#f3671c',
+        'primary-600': '#d44811',
+        'primary-700': '#bd3911',
+        'primary-800': '#962e16',
+        'primary-900': '#792815',
+        'primary-950': '#411209',
+        'primary-1000': '#0f9cff',
       },
       dropShadow: {
         'black-10': '0 0 10px rgba(0, 0, 0, 0.5)',

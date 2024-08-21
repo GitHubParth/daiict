@@ -1,7 +1,8 @@
-import React, { useRef, useEffect } from "react";
+import React, { useRef, useEffect, useState } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import "swiper/css/scrollbar";
+import { Autoplay } from 'swiper/modules';
 
 import GridCards from "../Components/GridCards";
 
@@ -16,6 +17,9 @@ const HomePage = () => {
 		}
 	}, []);
 	const swiperRef = useRef();
+	const heroSwiperRef = useRef();
+
+	
 
 	const aboutUsData = [
 		{
@@ -114,31 +118,85 @@ const HomePage = () => {
 		},
 	];
 
+	const heroSwiperData = [
+		{
+			image: "https://itbrief.com.au/uploads/story/2022/02/03/GettyImages-857015074.webp",
+			title: "Research Theme 1",
+			desc: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,"
+		},
+		{
+			image: "https://itbrief.com.au/uploads/story/2022/02/03/GettyImages-857015074.webp",
+			title: "Research Theme 2",
+			desc: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,"
+		},
+		{
+			image: "https://itbrief.com.au/uploads/story/2022/02/03/GettyImages-857015074.webp",
+			title: "Research Theme 3",
+			desc: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,"
+		},
+		{
+			image: "https://itbrief.com.au/uploads/story/2022/02/03/GettyImages-857015074.webp",
+			title: "Research Theme 4",
+			desc: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,"
+		},
+		{
+			image: "https://itbrief.com.au/uploads/story/2022/02/03/GettyImages-857015074.webp",
+			title: "Research Theme 5",
+			desc: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,"
+		},
+	]
+
+	const [currHeroIdx, setCurrHeroIdx] = useState(0)
+
 	return (
 		<div className="w-full font-Open-sans">
-			<div className="w-full h-screen bg-[linear-gradient(to_bottom,rgba(0,0,0,0),rgba(0,0,0,1)),url('https://accilium.com/wp-content/uploads/2023/07/environmental-technology-green-computing-green-technology-green-it-csr-it-ethics-concept.jpg')] bg-cover bg-no-repeat bg-center text-white flex flex-col justify-end border-b-4 border-primary-500">
-				<div className="py-20 max-w-6xl mx-auto flex flex-col gap-8">
-					<p className="text-6xl italic font-Nunito">Research</p>
-					<div className="h-[5px] w-[12%] bg-primary-500"></div>
-					<p className="text-2xl font-normal leading-10 w-[50%]">
-						Our researchers are tackling the world’s greatest
-						problems, from creating a more sustainable world to
-						developing new treatments for chronic diseases.
-					</p>
-				</div>
+			<div className="w-full mt-20 h-[calc(100vh-5rem)] flex items-center justify-center border-b-4 border-primary-500">
+				<Swiper
+					onBeforeInit={(swiper) => {
+						heroSwiperRef.current = swiper;
+					}}
+					onSlideChange={(swiper) => {
+						setCurrHeroIdx(swiper.realIndex)
+					}}
+					autoplay={{
+						delay: 2500,
+						disableOnInteraction: false,
+					}}
+					modules={[Autoplay]}
+					className="mySwiper w-full h-full px-8 relative">
+						<div className="absolute bottom-5 left-1/2 translate-x-[-50%] flex gap-2 z-20">
+							{[0,1,2,3,4].map((num, idx) => (
+								<button key={idx} onClick={()=> { heroSwiperRef.current.slideTo(num); setCurrHeroIdx(num) }} className={currHeroIdx === num ? "bg-primary-500 h-1.5 !outline-none w-14 hover:bg-primary-500 rounded-full" : "bg-gray-500 h-1.5 !outline-none w-14 hover:bg-primary-500 rounded-full"}></button>
+							))}
+						</div>
+						{heroSwiperData.map((item, index) => (
+							<SwiperSlide key={index} style={{ backgroundImage: "linear-gradient(rgba(0,0,0,0),rgba(0,0,0,1)),url("+ item.image +")" }} className={"w-full h-full relative !flex bg-cover bg-no-repeat bg-center"}>
+								<div className="py-20 max-w-6xl mx-auto flex flex-col justify-end gap-8 text-white">
+									<p className="text-6xl italic font-Nunito">{item.title}</p>
+									<div className="h-[5px] w-[12%] bg-primary-500"></div>
+									<p className="text-2xl font-normal leading-10 w-[50%]">
+										Our researchers are tackling the world’s greatest
+										problems, from creating a more sustainable world to
+										developing new treatments for chronic diseases.
+									</p>
+								</div>
+							</SwiperSlide>
+						))}
+				</Swiper>
+				
 			</div>
-			<GridCards
+			{/* <GridCards
 				cols="3"
 				title="About Us"
 				data={aboutUsData}
 				bgColor="#F1F1F1"
-			/>
-			<div className="w-full flex items-center justify-center py-16">
+			/> */}
+			<div className="w-full flex items-center justify-center py-16 bg-[#F1F1F1]">
 				<div className="w-full max-w-6xl flex flex-col gap-8">
 					<div className="flex items-center justify-between">
 						<div className="flex flex-col gap-4">
 							<p className="text-5xl font-semibold font-Open-sans">
-								Themes
+								News
 							</p>
 							<div className="w-[70%] h-[4px] bg-primary-500" />
 						</div>
@@ -222,18 +280,54 @@ const HomePage = () => {
 					</Swiper>
 				</div>
 			</div>
+			{/* <GridCards
+				cols="2"
+				title="Recent news"
+				data={newsData}
+				bgColor="#FFF"
+			/> */}
+			<div className="w-full flex items-center justify-center gap-10 py-16">
+				<div className="w-full max-w-6xl flex flex-col gap-8">
+					<div className="flex flex-col gap-4">
+						<p className="text-5xl font-semibold font-Open-sans capitalize">
+							Resources
+						</p>
+						<div className="w-[12%] h-[4px] bg-primary-500" />
+					</div>
+					<div className="w-full grid grid-cols-4 gap-4">
+						<div className="w-full h-full aspect-square rounded-xl px-7 border flex flex-col gap-5 items-start justify-center group hover:border-primary-500 hover:shadow-[0_0_60px_0_rgba(0,0,0,.07)] transition-all duration-300">
+							<p className="text-4xl font-bold group-hover:text-primary-500 transition-all duration-300">
+								1492
+							</p>
+							<p>Laboratories in 100+ states</p>
+						</div>
+						<div className="w-full h-full aspect-square rounded-xl px-7 border flex flex-col gap-5 items-start justify-center group hover:border-primary-500 hover:shadow-[0_0_60px_0_rgba(0,0,0,.07)] transition-all duration-300">
+							<p className="text-4xl font-bold group-hover:text-primary-500 transition-all duration-300">
+								52
+							</p>
+							<p>Laboratories in 100+ states</p>
+						</div>
+						<div className="w-full h-full aspect-square rounded-xl px-7 border flex flex-col gap-5 items-start justify-center group hover:border-primary-500 hover:shadow-[0_0_60px_0_rgba(0,0,0,.07)] transition-all duration-300">
+							<p className="text-4xl font-bold group-hover:text-primary-500 transition-all duration-300">
+								1256
+							</p>
+							<p>Laboratories in 100+ states</p>
+						</div>
+						<div className="w-full h-full aspect-square rounded-xl px-7 border flex flex-col gap-5 items-start justify-center group hover:border-primary-500 hover:shadow-[0_0_60px_0_rgba(0,0,0,.07)] transition-all duration-300">
+							<p className="text-4xl font-bold group-hover:text-primary-500 transition-all duration-300">
+								560
+							</p>
+							<p>Laboratories in 100+ states</p>
+						</div>
+					</div>
+				</div>
+			</div>
 			<GridCards
 				id="research-project"
 				cols="3"
 				title="Research Projects"
 				data={ourImpactData}
 				bgColor="#F1F1F1"
-			/>
-			<GridCards
-				cols="2"
-				title="Recent news"
-				data={newsData}
-				bgColor="#FFF"
 			/>
 		</div>
 	);
