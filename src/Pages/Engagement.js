@@ -66,6 +66,124 @@ const Engagement = () => {
 				</div>
 			</div> */}
 			<div className="max-w-6xl h-full mx-auto py-10">
+				<div id="events" className="flex flex-col gap-10 py-24">
+					<div className="flex items-center justify-between">
+						<div className="flex flex-col gap-4">
+							<p className="text-5xl font-semibold font-Open-sans">
+								Events
+							</p>
+							<div className="w-[70%] h-[4px] bg-primary-500" />
+						</div>
+					</div>
+					<div className="relative">
+						<Swiper
+							spaceBetween={30}
+							breakpoints={{
+								576: {
+									slidesPerView: 1,
+								},
+								768: {
+									slidesPerView: 2,
+								},
+								1024: {
+									slidesPerView: 3,
+								},
+							}}
+							autoplay={{
+								delay: 2100,
+								disableOnInteraction: false,
+							}}
+							onBeforeInit={(swiper) => {
+								swiperRef2.current = swiper;
+							}}
+							loop={true}
+							modules={[Autoplay]}
+							className="mySwiper w-full px-8"
+						>
+							{newsData.map((item, index) => (
+								<SwiperSlide
+									className="w-full flex flex-col gap-3 group"
+									key={index}
+								>
+									<div
+										key={index}
+										className="w-full group"
+									>
+										<div className="w-full h-[70%] overflow-hidden">
+											<img
+												src={item.image}
+												alt=""
+												className="w-full h-full object-cover group-hover:scale-105 transition-all duration-300"
+											/>
+										</div>
+										<div className="h-[30%] flex flex-col justify-evenly">
+											<div className="flex flex-col gap-0.5 mt-4">
+												<p className="text-2xl font-semibold group-hover:text-primary-500 truncate transition-all duration-300">
+													{item.name}
+												</p>
+												<div className="w-0 group-hover:w-[15%] h-[2px] bg-primary-500 transition-all duration-300"></div>
+											</div>
+											<p className="line-clamp-2 mt-3">
+												{item.desc}
+											</p>
+											<div className="mt-5 font-semibold flex items-center gap-2 justify-end">
+												<svg
+													xmlns="http://www.w3.org/2000/svg"
+													width={16}
+													height={16}
+													fill="currentColor"
+													className="bi bi-calendar2-event group-hover:underline group-hover:text-primary-500 transition-all duration-300"
+													viewBox="0 0 16 16"
+												>
+													<path d="M11 7.5a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5z" />
+													<path d="M3.5 0a.5.5 0 0 1 .5.5V1h8V.5a.5.5 0 0 1 1 0V1h1a2 2 0 0 1 2 2v11a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V3a2 2 0 0 1 2-2h1V.5a.5.5 0 0 1 .5-.5M2 2a1 1 0 0 0-1 1v11a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V3a1 1 0 0 0-1-1z" />
+													<path d="M2.5 4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5H3a.5.5 0 0 1-.5-.5z" />
+												</svg>
+												<p className="group-hover:underline group-hover:text-primary-500 transition-all duration-300">01/01/2000</p>
+											</div>
+										</div>
+									</div>
+								</SwiperSlide>
+							))}
+						</Swiper>
+						<button
+							onClick={() => swiperRef2.current?.slidePrev()}
+							className="swiper-button-prev absolute top-1/2 -translate-y-1/2 -left-20 w-8 h-8 lg:w-12 lg:h-12 rounded-full flex items-center justify-center bg-primary-500 hover:bg-primary-500/50"
+						>
+							<svg
+								xmlns="http://www.w3.org/2000/svg"
+								width={20}
+								height={20}
+								fill="currentColor"
+								className="bi bi-arrow-left"
+								viewBox="0 0 16 16"
+							>
+								<path
+									fillRule="evenodd"
+									d="M15 8a.5.5 0 0 0-.5-.5H2.707l3.147-3.146a.5.5 0 1 0-.708-.708l-4 4a.5.5 0 0 0 0 .708l4 4a.5.5 0 0 0 .708-.708L2.707 8.5H14.5A.5.5 0 0 0 15 8"
+								/>
+							</svg>
+						</button>
+						<button
+							onClick={() => swiperRef2.current?.slideNext()}
+							className="swiper-button-next absolute top-1/2 -translate-y-1/2 -right-20 w-8 h-8 lg:w-12 lg:h-12 rounded-full flex items-center justify-center bg-primary-500 hover:bg-primary-500/50"
+						>
+							<svg
+								xmlns="http://www.w3.org/2000/svg"
+								width={20}
+								height={20}
+								fill="currentColor"
+								className="bi bi-arrow-right"
+								viewBox="0 0 16 16"
+							>
+								<path
+									fillRule="evenodd"
+									d="M1 8a.5.5 0 0 1 .5-.5h11.793l-3.147-3.146a.5.5 0 0 1 .708-.708l4 4a.5.5 0 0 1 0 .708l-4 4a.5.5 0 0 1-.708-.708L13.293 8.5H1.5A.5.5 0 0 1 1 8"
+								/>
+							</svg>
+						</button>
+					</div>
+				</div>
 				<div id="media" className="flex flex-col gap-10 py-24">
 					<div className="flex items-center justify-between">
 						<div className="flex flex-col gap-4">
@@ -74,10 +192,48 @@ const Engagement = () => {
 							</p>
 							<div className="w-[70%] h-[4px] bg-primary-500" />
 						</div>
-						<div className="flex items-center justify-center gap-3">
-							<button
+					</div>
+					<div className="relative">
+						<Swiper
+							spaceBetween={30}
+							breakpoints={{
+								576: {
+									slidesPerView: 1,
+								},
+								768: {
+									slidesPerView: 2,
+								},
+								1024: {
+									slidesPerView: 3,
+								},
+							}}
+							autoplay={{
+								delay: 2000,
+								disableOnInteraction: false,
+							}}
+							onBeforeInit={(swiper) => {
+								swiperRef.current = swiper;
+							}}
+							loop={true}
+							modules={[Autoplay]}
+							className="mySwiper w-full px-8"
+						>
+							{mediaImages.map((item, index) => (
+								<SwiperSlide
+									className="w-full flex flex-col gap-3 group"
+									key={index}
+								>
+									<img
+										src={item}
+										alt=""
+										className="w-full h-96 object-cover"
+									/>
+								</SwiperSlide>
+							))}
+						</Swiper>
+						<button
 								onClick={() => swiperRef.current?.slidePrev()}
-								className="swiper-button-prev w-8 h-8 lg:w-12 lg:h-12 rounded-full flex items-center justify-center bg-primary-500/50 hover:bg-primary-500"
+								className="swiper-button-prev absolute top-1/2 -translate-y-1/2 -left-20 w-8 h-8 lg:w-12 lg:h-12 rounded-full flex items-center justify-center bg-primary-500 hover:bg-primary-500/50"
 							>
 								<svg
 									xmlns="http://www.w3.org/2000/svg"
@@ -95,7 +251,7 @@ const Engagement = () => {
 							</button>
 							<button
 								onClick={() => swiperRef.current?.slideNext()}
-								className="swiper-button-next w-8 h-8 lg:w-12 lg:h-12 rounded-full flex items-center justify-center bg-primary-500/50 hover:bg-primary-500"
+								className="swiper-button-next absolute top-1/2 -translate-y-1/2 -right-20 w-8 h-8 lg:w-12 lg:h-12 rounded-full flex items-center justify-center bg-primary-500 hover:bg-primary-500/50"
 							>
 								<svg
 									xmlns="http://www.w3.org/2000/svg"
@@ -111,196 +267,6 @@ const Engagement = () => {
 									/>
 								</svg>
 							</button>
-						</div>
-					</div>
-					<Swiper
-						spaceBetween={30}
-						breakpoints={{
-							576: {
-								slidesPerView: 1,
-							},
-							768: {
-								slidesPerView: 2,
-							},
-							1024: {
-								slidesPerView: 3,
-							},
-						}}
-						autoplay={{
-							delay: 2000,
-							disableOnInteraction: false,
-						}}
-						onBeforeInit={(swiper) => {
-							swiperRef.current = swiper;
-						}}
-						loop={true}
-						modules={[Autoplay]}
-						className="mySwiper w-full px-8"
-					>
-						{mediaImages.map((item, index) => (
-							<SwiperSlide
-								className="w-full flex flex-col gap-3 group"
-								key={index}
-							>
-								<img
-									src={item}
-									alt=""
-									className="w-full h-96 object-cover"
-								/>
-							</SwiperSlide>
-						))}
-					</Swiper>
-				</div>
-				<div id="events" className="flex flex-col gap-10 py-24">
-					<div className="flex items-center justify-between">
-						<div className="flex flex-col gap-4">
-							<p className="text-5xl font-semibold font-Open-sans">
-								Events
-							</p>
-							<div className="w-[70%] h-[4px] bg-primary-500" />
-						</div>
-						<div className="flex items-center justify-center gap-3">
-							<button
-								onClick={() => swiperRef2.current?.slidePrev()}
-								className="swiper-button-prev w-8 h-8 lg:w-12 lg:h-12 rounded-full flex items-center justify-center bg-primary-500/50 hover:bg-primary-500"
-							>
-								<svg
-									xmlns="http://www.w3.org/2000/svg"
-									width={16}
-									height={16}
-									fill="currentColor"
-									className="bi bi-arrow-left"
-									viewBox="0 0 16 16"
-								>
-									<path
-										fillRule="evenodd"
-										d="M15 8a.5.5 0 0 0-.5-.5H2.707l3.147-3.146a.5.5 0 1 0-.708-.708l-4 4a.5.5 0 0 0 0 .708l4 4a.5.5 0 0 0 .708-.708L2.707 8.5H14.5A.5.5 0 0 0 15 8"
-									/>
-								</svg>
-							</button>
-							<button
-								onClick={() => swiperRef2.current?.slideNext()}
-								className="swiper-button-next w-8 h-8 lg:w-12 lg:h-12 rounded-full flex items-center justify-center bg-primary-500/50 hover:bg-primary-500"
-							>
-								<svg
-									xmlns="http://www.w3.org/2000/svg"
-									width={16}
-									height={16}
-									fill="currentColor"
-									className="bi bi-arrow-right"
-									viewBox="0 0 16 16"
-								>
-									<path
-										fillRule="evenodd"
-										d="M1 8a.5.5 0 0 1 .5-.5h11.793l-3.147-3.146a.5.5 0 0 1 .708-.708l4 4a.5.5 0 0 1 0 .708l-4 4a.5.5 0 0 1-.708-.708L13.293 8.5H1.5A.5.5 0 0 1 1 8"
-									/>
-								</svg>
-							</button>
-						</div>
-					</div>
-					<Swiper
-						spaceBetween={30}
-						breakpoints={{
-							576: {
-								slidesPerView: 1,
-							},
-							768: {
-								slidesPerView: 2,
-							},
-							1024: {
-								slidesPerView: 3,
-							},
-						}}
-						autoplay={{
-							delay: 2100,
-							disableOnInteraction: false,
-						}}
-						onBeforeInit={(swiper) => {
-							swiperRef2.current = swiper;
-						}}
-						loop={true}
-						modules={[Autoplay]}
-						className="mySwiper w-full px-8"
-					>
-						{newsData.map((item, index) => (
-							<SwiperSlide
-								className="w-full flex flex-col gap-3 group"
-								key={index}
-							>
-								<div
-									key={index}
-									className="w-full group"
-								>
-									<div className="w-full h-[70%] overflow-hidden">
-										<img
-											src={item.image}
-											alt=""
-											className="w-full h-full object-cover group-hover:scale-105 transition-all duration-300"
-										/>
-									</div>
-									<div className="h-[30%] flex flex-col justify-evenly">
-										<div className="flex flex-col gap-0.5 mt-4">
-											<p className="text-2xl font-semibold group-hover:text-primary-500 truncate transition-all duration-300">
-												{item.name}
-											</p>
-											<div className="w-0 group-hover:w-[15%] h-[2px] bg-primary-500 transition-all duration-300"></div>
-										</div>
-										<p className="line-clamp-2 mt-3">
-											{item.desc}
-										</p>
-										<div className="mt-5 font-semibold flex items-center gap-2 justify-end">
-											<svg
-												xmlns="http://www.w3.org/2000/svg"
-												width={16}
-												height={16}
-												fill="currentColor"
-												className="bi bi-calendar2-event group-hover:underline group-hover:text-primary-500 transition-all duration-300"
-												viewBox="0 0 16 16"
-											>
-												<path d="M11 7.5a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5z" />
-												<path d="M3.5 0a.5.5 0 0 1 .5.5V1h8V.5a.5.5 0 0 1 1 0V1h1a2 2 0 0 1 2 2v11a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V3a2 2 0 0 1 2-2h1V.5a.5.5 0 0 1 .5-.5M2 2a1 1 0 0 0-1 1v11a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V3a1 1 0 0 0-1-1z" />
-												<path d="M2.5 4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5H3a.5.5 0 0 1-.5-.5z" />
-											</svg>
-											<p className="group-hover:underline group-hover:text-primary-500 transition-all duration-300">01/01/2000</p>
-										</div>
-									</div>
-								</div>
-							</SwiperSlide>
-						))}
-					</Swiper>
-				</div>
-				<div id="resources" className="flex flex-col gap-10 py-24">
-					<div className="flex flex-col gap-4">
-						<p className="text-5xl font-semibold font-Open-sans capitalize">
-							Resources
-						</p>
-						<div className="w-[12%] h-[4px] bg-primary-500" />
-					</div>
-					<div className="w-full grid grid-cols-4 gap-4">
-						<div className="w-full h-full aspect-square rounded-xl px-7 border flex flex-col gap-5 items-start justify-center group hover:border-primary-500 hover:shadow-[0_0_60px_0_rgba(0,0,0,.07)] transition-all duration-300">
-							<p className="text-4xl font-bold group-hover:text-primary-500 transition-all duration-300">
-								1492
-							</p>
-							<p>Laboratories in 100+ states</p>
-						</div>
-						<div className="w-full h-full aspect-square rounded-xl px-7 border flex flex-col gap-5 items-start justify-center group hover:border-primary-500 hover:shadow-[0_0_60px_0_rgba(0,0,0,.07)] transition-all duration-300">
-							<p className="text-4xl font-bold group-hover:text-primary-500 transition-all duration-300">
-								52
-							</p>
-							<p>Laboratories in 100+ states</p>
-						</div>
-						<div className="w-full h-full aspect-square rounded-xl px-7 border flex flex-col gap-5 items-start justify-center group hover:border-primary-500 hover:shadow-[0_0_60px_0_rgba(0,0,0,.07)] transition-all duration-300">
-							<p className="text-4xl font-bold group-hover:text-primary-500 transition-all duration-300">
-								1256
-							</p>
-							<p>Laboratories in 100+ states</p>
-						</div>
-						<div className="w-full h-full aspect-square rounded-xl px-7 border flex flex-col gap-5 items-start justify-center group hover:border-primary-500 hover:shadow-[0_0_60px_0_rgba(0,0,0,.07)] transition-all duration-300">
-							<p className="text-4xl font-bold group-hover:text-primary-500 transition-all duration-300">
-								560
-							</p>
-							<p>Laboratories in 100+ states</p>
-						</div>
 					</div>
 				</div>
 			</div>

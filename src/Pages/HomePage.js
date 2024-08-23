@@ -2,7 +2,8 @@ import React, { useRef, useEffect, useState } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import "swiper/css/scrollbar";
-import { Autoplay } from 'swiper/modules';
+import 'swiper/css/effect-fade';
+import { Autoplay, EffectFade } from 'swiper/modules';
 
 import GridCards from "../Components/GridCards";
 
@@ -125,22 +126,22 @@ const HomePage = () => {
 			desc: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,"
 		},
 		{
-			image: "https://itbrief.com.au/uploads/story/2022/02/03/GettyImages-857015074.webp",
+			image: "https://images.pexels.com/photos/2280571/pexels-photo-2280571.jpeg?auto=compress&cs=tinysrgb&w=1080",
 			title: "Research Theme 2",
 			desc: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,"
 		},
 		{
-			image: "https://itbrief.com.au/uploads/story/2022/02/03/GettyImages-857015074.webp",
+			image: "https://images.pexels.com/photos/954585/pexels-photo-954585.jpeg?auto=compress&cs=tinysrgb&w=1080",
 			title: "Research Theme 3",
 			desc: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,"
 		},
 		{
-			image: "https://itbrief.com.au/uploads/story/2022/02/03/GettyImages-857015074.webp",
+			image: "https://images.pexels.com/photos/256262/pexels-photo-256262.jpeg?auto=compress&cs=tinysrgb&w=1080",
 			title: "Research Theme 4",
 			desc: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,"
 		},
 		{
-			image: "https://itbrief.com.au/uploads/story/2022/02/03/GettyImages-857015074.webp",
+			image: "https://images.pexels.com/photos/2280551/pexels-photo-2280551.jpeg?auto=compress&cs=tinysrgb&w=1080",
 			title: "Research Theme 5",
 			desc: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,"
 		},
@@ -162,7 +163,9 @@ const HomePage = () => {
 						delay: 2500,
 						disableOnInteraction: false,
 					}}
-					modules={[Autoplay]}
+					effect={'fade'}
+					modules={[Autoplay, EffectFade]}
+					loop={true}
 					className="mySwiper w-full h-full px-8 relative">
 						<div className="absolute bottom-5 left-1/2 translate-x-[-50%] flex gap-2 z-20">
 							{[0,1,2,3,4].map((num, idx) => (
@@ -200,33 +203,73 @@ const HomePage = () => {
 							</p>
 							<div className="w-[70%] h-[4px] bg-primary-500" />
 						</div>
-						<div className="flex items-center justify-center gap-3">
-							<button
-								onClick={() => swiperRef.current?.slidePrev()}
-								className="swiper-button-prev w-8 h-8 lg:w-12 lg:h-12 rounded-full flex items-center justify-center bg-primary-500/50 hover:bg-primary-500"
-							>
-								<svg
-									xmlns="http://www.w3.org/2000/svg"
-									width={16}
-									height={16}
-									fill="currentColor"
-									className="bi bi-arrow-left"
-									viewBox="0 0 16 16"
+					</div>
+					<div className="relative">
+						<Swiper
+							spaceBetween={30}
+							breakpoints={{
+								576: {
+									slidesPerView: 1,
+								},
+								768: {
+									slidesPerView: 2,
+								},
+								1024: {
+									slidesPerView: 3,
+								},
+							}}
+							onBeforeInit={(swiper) => {
+								swiperRef.current = swiper;
+							}}
+							loop={true}
+							className="mySwiper w-full px-8"
+						>
+							{themesData.map((item, index) => (
+								<SwiperSlide
+									className="w-full flex flex-col gap-3 group"
+									key={index}
 								>
-									<path
-										fillRule="evenodd"
-										d="M15 8a.5.5 0 0 0-.5-.5H2.707l3.147-3.146a.5.5 0 1 0-.708-.708l-4 4a.5.5 0 0 0 0 .708l4 4a.5.5 0 0 0 .708-.708L2.707 8.5H14.5A.5.5 0 0 0 15 8"
+									<img
+										src={item.image}
+										alt=""
+										className="w-full h-80 object-cover"
 									/>
-								</svg>
-							</button>
-							<button
+									<div className="flex flex-col gap-1 mt-4">
+										<p className="text-2xl font-semibold group-hover:text-primary-500 truncate transition-all duration-300">
+											{item.name}
+										</p>
+										<div className="w-0 group-hover:w-[15%] h-[2px] bg-primary-500 transition-all duration-300"></div>
+									</div>
+									<p className="line-clamp-2 mt-4">{item.desc}</p>
+								</SwiperSlide>
+							))}
+						</Swiper>
+						<button
+							onClick={() => swiperRef.current?.slidePrev()}
+							className="swiper-button-prev absolute top-1/2 -translate-y-1/2 -left-20 w-8 h-8 lg:w-12 lg:h-12 rounded-full flex items-center justify-center bg-primary-500/5 hover:bg-primary-500/50"
+						>
+							<svg
+								xmlns="http://www.w3.org/2000/svg"
+								width={20}
+								height={20}
+								fill="currentColor"
+								className="bi bi-arrow-left"
+								viewBox="0 0 16 16"
+							>
+								<path
+									fillRule="evenodd"
+									d="M15 8a.5.5 0 0 0-.5-.5H2.707l3.147-3.146a.5.5 0 1 0-.708-.708l-4 4a.5.5 0 0 0 0 .708l4 4a.5.5 0 0 0 .708-.708L2.707 8.5H14.5A.5.5 0 0 0 15 8"
+								/>
+							</svg>
+						</button>
+						<button
 								onClick={() => swiperRef.current?.slideNext()}
-								className="swiper-button-next w-8 h-8 lg:w-12 lg:h-12 rounded-full flex items-center justify-center bg-primary-500/50 hover:bg-primary-500"
+								className="swiper-button-next absolute top-1/2 -translate-y-1/2 -right-20 w-8 h-8 lg:w-12 lg:h-12 rounded-full flex items-center justify-center bg-primary-500/5 hover:bg-primary-500/50"
 							>
 								<svg
 									xmlns="http://www.w3.org/2000/svg"
-									width={16}
-									height={16}
+									width={20}
+									height={20}
 									fill="currentColor"
 									className="bi bi-arrow-right"
 									viewBox="0 0 16 16"
@@ -237,47 +280,7 @@ const HomePage = () => {
 									/>
 								</svg>
 							</button>
-						</div>
 					</div>
-					<Swiper
-						spaceBetween={30}
-						breakpoints={{
-							576: {
-								slidesPerView: 1,
-							},
-							768: {
-								slidesPerView: 2,
-							},
-							1024: {
-								slidesPerView: 3,
-							},
-						}}
-						onBeforeInit={(swiper) => {
-							swiperRef.current = swiper;
-						}}
-						loop={true}
-						className="mySwiper w-full px-8"
-					>
-						{themesData.map((item, index) => (
-							<SwiperSlide
-								className="w-full flex flex-col gap-3 group"
-								key={index}
-							>
-								<img
-									src={item.image}
-									alt=""
-									className="w-full h-80 object-cover"
-								/>
-								<div className="flex flex-col gap-1 mt-4">
-									<p className="text-2xl font-semibold group-hover:text-primary-500 truncate transition-all duration-300">
-										{item.name}
-									</p>
-									<div className="w-0 group-hover:w-[15%] h-[2px] bg-primary-500 transition-all duration-300"></div>
-								</div>
-								<p className="line-clamp-2 mt-4">{item.desc}</p>
-							</SwiperSlide>
-						))}
-					</Swiper>
 				</div>
 			</div>
 			{/* <GridCards

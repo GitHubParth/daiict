@@ -11,51 +11,32 @@ const Navbar = () => {
 			submenus: [],
 		},
 		{
-			title: "About ▾",
-			link: "/about",
-			submenus: [
-				["Who We Are", "/about#who-are-we"],
-				["Governance", "/about#governance"],
-			],
-		},
-		{
-			title: "Our Team ▾",
+			title: "Our Team",
 			link: "/people",
-			submenus: [
-				["senior leadership", "/people#senior-leadership"],
-				["project leads", "/people#project-leads"],
-				["project collabrations", "/people#project-collabs"],
-				["research fellow", "/people#research-fellow"],
-			],
+			submenus: [],
 		},
 		{
-			title: "Research ▾",
+			title: "Research Projects",
 			link: "/#research-project",
-			submenus: [
-				["project scheme 1", "/project/project-scheme-1"],
-				["project scheme 2", "/project/project-scheme-2"],
-				["project scheme 3", "/project/project-scheme-3"],
-				["project scheme 4", "/project/project-scheme-4"],
-			],
+			submenus: [],
 		},
 		{
-			title: "Engagement ▾",
-			link: "/engagement",
-			submenus: [
-				["media", "/engagement#media"],
-				["events", "/engagement#events"],
-				["resources", "/engagement#resources"],
-			],
-		},
-		{
-			title: "Work With Us ▾",
+			title: "Work With Us",
 			link: "/work-with-us",
-			submenus: [
-				["research fellow", "/work-with-us#research-fellows"],
-				["project interns", "/work-with-us#project-interns"],
-				["staff", "/work-with-us#staff"],
-			],
+			submenus: [],
 		},
+		{
+			title: "Engagement",
+			link: "/engagement",
+			submenus: [],
+		},
+		{
+			title: "About Us",
+			link: "/about",
+			submenus: [],
+		},
+
+
 	];
 
 	return (
@@ -65,14 +46,18 @@ const Navbar = () => {
 					to="/"
 					className="h-full ml-3 p-2 flex items-center justify-center gap-3"
 				>
-					<img
+					{/* <img
 						src="/images/daiict-logo.jpg"
 						alt=""
 						className="h-full object-cover opacity-75"
-					/>
-					<p className="text-3xl text-primary-1000 font-Open-sans font-bold leading-tight">
+					/> */}
+					<p className="text-3xl text-primary-1000 font-Open-sans font-semibold leading-tight">
 						Smart Energy Learning Centre
+						<br />
+						<p className="text-xs text-primary-500 font-light font-Open-sans ">A New Research Centre at DA-IICT funded by BSES Delhi, India</p>
 					</p>
+					
+					
 				</Link>
 				<div className="lg:flex hidden items-center justify-between h-full px-5 bg-white">
 					<div className="h-full">

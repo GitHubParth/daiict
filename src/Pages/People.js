@@ -11,7 +11,7 @@ const People = () => {
 		}
 	}, []);
 
-	const designation = ["All", "Senior Leadership", "Project Leads", "Project Collaboration", "Research Fellow"]
+	const designation = ["All", "Senior Leadership", "Principal Investigator", "Co-Principal Investigator", "Research Fellows", "Research Interns"];
 
 	const peoplesList = [
 		{
@@ -27,7 +27,7 @@ const People = () => {
 			name: "John Doe",
 			age: 30,
 			gender: "Female",
-			designation: "Project Leads",
+			designation: "Principal Investigator",
 			email: "johndoe@example.com",
 			degree: "Phd in Artificial Intelligence, Phd in Machine Learning, Masters in Data Science",
 			image: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Nnx8cHJvZmlsZXxlbnwwfHwwfHx8MA%3D%3D",
@@ -36,7 +36,7 @@ const People = () => {
 			name: "John Doe",
 			age: 30,
 			gender: "Female",
-			designation: "Project Leads",
+			designation: "Principal Investigator",
 			email: "johndoe@example.com",
 			degree: "Phd in Artificial Intelligence, Phd in Machine Learning, Masters in Data Science",
 			image: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Nnx8cHJvZmlsZXxlbnwwfHwwfHx8MA%3D%3D",
@@ -45,7 +45,7 @@ const People = () => {
 			name: "John Doe",
 			age: 30,
 			gender: "Female",
-			designation: "Project Leads",
+			designation: "Principal Investigator",
 			email: "johndoe@example.com",
 			degree: "Phd in Artificial Intelligence, Phd in Machine Learning, Masters in Data Science",
 			image: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Nnx8cHJvZmlsZXxlbnwwfHwwfHx8MA%3D%3D",
@@ -54,8 +54,8 @@ const People = () => {
 			name: "John Doe",
 			age: 30,
 			gender: "Male",
-			designation: "Project Collaboration",
-			email: "Project Collaboration",
+			designation: "Co-Principal Investigator",
+			email: "Co-Principal Investigator",
 			degree: "Phd in Artificial Intelligence, Phd in Machine Learning, Masters in Data Science",
 			image: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MjZ8fHByb2ZpbGV8ZW58MHx8MHx8fDA%3D",
 		},
@@ -63,7 +63,7 @@ const People = () => {
 			name: "John Doe",
 			age: 30,
 			gender: "Female",
-			designation: "Project Collaboration",
+			designation: "Co-Principal Investigator",
 			email: "johndoe@example.com",
 			degree: "Phd in Artificial Intelligence, Phd in Machine Learning, Masters in Data Science",
 			image: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Nnx8cHJvZmlsZXxlbnwwfHwwfHx8MA%3D%3D",
@@ -72,8 +72,8 @@ const People = () => {
 			name: "John Doe",
 			age: 30,
 			gender: "Male",
-			designation: "Project Collaboration",
-			email: "Project Collaboration",
+			designation: "Co-Principal Investigator",
+			email: "Co-Principal Investigator",
 			degree: "Phd in Artificial Intelligence, Phd in Machine Learning, Masters in Data Science",
 			image: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MjZ8fHByb2ZpbGV8ZW58MHx8MHx8fDA%3D",
 		},
@@ -81,7 +81,7 @@ const People = () => {
 			name: "John Doe",
 			age: 30,
 			gender: "Female",
-			designation: "Project Collaboration",
+			designation: "Co-Principal Investigator",
 			email: "johndoe@example.com",
 			degree: "Phd in Artificial Intelligence, Phd in Machine Learning, Masters in Data Science",
 			image: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Nnx8cHJvZmlsZXxlbnwwfHwwfHx8MA%3D%3D",
@@ -90,8 +90,8 @@ const People = () => {
 			name: "John Doe",
 			age: 30,
 			gender: "Male",
-			designation: "Project Collaboration",
-			email: "Project Collaboration",
+			designation: "Co-Principal Investigator",
+			email: "Co-Principal Investigator",
 			degree: "Phd in Artificial Intelligence, Phd in Machine Learning, Masters in Data Science",
 			image: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MjZ8fHByb2ZpbGV8ZW58MHx8MHx8fDA%3D",
 		},
@@ -99,7 +99,25 @@ const People = () => {
 			name: "John Doe",
 			age: 30,
 			gender: "Male",
-			designation: "Research Fellow",
+			designation: "Research Fellows",
+			email: "johndoe@example.com",
+			degree: "Phd in Artificial Intelligence, Phd in Machine Learning, Masters in Data Science",
+			image: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MjZ8fHByb2ZpbGV8ZW58MHx8MHx8fDA%3D",
+		},
+		{
+			name: "John Doe",
+			age: 30,
+			gender: "Female",
+			designation: "Senior Leadership",
+			email: "johndoe@example.com",
+			degree: "Phd in Artificial Intelligence, Phd in Machine Learning, Masters in Data Science",
+			image: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Nnx8cHJvZmlsZXxlbnwwfHwwfHx8MA%3D%3D",
+		},
+		{
+			name: "John Doe",
+			age: 30,
+			gender: "Male",
+			designation: "Senior Leadership",
 			email: "johndoe@example.com",
 			degree: "Phd in Artificial Intelligence, Phd in Machine Learning, Masters in Data Science",
 			image: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MjZ8fHByb2ZpbGV8ZW58MHx8MHx8fDA%3D",
@@ -125,8 +143,17 @@ const People = () => {
 		{
 			name: "John Doe",
 			age: 30,
+			gender: "Male",
+			designation: "Research Interns",
+			email: "johndoe@example.com",
+			degree: "Phd in Artificial Intelligence, Phd in Machine Learning, Masters in Data Science",
+			image: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MjZ8fHByb2ZpbGV8ZW58MHx8MHx8fDA%3D",
+		},
+		{
+			name: "John Doe",
+			age: 30,
 			gender: "Female",
-			designation: "Senior Leadership",
+			designation: "Research Interns",
 			email: "johndoe@example.com",
 			degree: "Phd in Artificial Intelligence, Phd in Machine Learning, Masters in Data Science",
 			image: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Nnx8cHJvZmlsZXxlbnwwfHwwfHx8MA%3D%3D",
@@ -135,7 +162,7 @@ const People = () => {
 			name: "John Doe",
 			age: 30,
 			gender: "Male",
-			designation: "Senior Leadership",
+			designation: "Research Interns",
 			email: "johndoe@example.com",
 			degree: "Phd in Artificial Intelligence, Phd in Machine Learning, Masters in Data Science",
 			image: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MjZ8fHByb2ZpbGV8ZW58MHx8MHx8fDA%3D",
@@ -243,7 +270,7 @@ const People = () => {
 				className="flex flex-col items-start md:items-center max-w-6xl mx-auto w-full pt-16 pb-4"
 			>
 				<h1 className=" text-4xl leading-tight sm:leading-normal sm:text-5xl font-bold mt-7 mb-10 md:mb-14 relative before:w-2/3 before:absolute before:h-1 before:bg-primary-500 before:-bottom-3 before:left-1">
-					Project Leads
+					Principal Investigator
 				</h1>
 				<div className="grid lg:grid-cols-3 md:grid-cols-2 grid-cols-1 gap-8">
 					{projectLeads.map((people, index) => (
@@ -273,7 +300,7 @@ const People = () => {
 				className="flex flex-col items-start md:items-center max-w-6xl mx-auto w-full pt-16 pb-4"
 			>
 				<h1 className=" text-4xl leading-tight sm:leading-normal sm:text-5xl font-bold mt-7 mb-10 md:mb-14 relative before:w-2/3 before:absolute before:h-1 before:bg-primary-500 before:-bottom-3 before:left-1">
-					Project Collaborations
+					Co-Principal Investigators
 				</h1>
 				<div className="grid lg:grid-cols-3 md:grid-cols-2 grid-cols-1 gap-8">
 					{projectCollaborations.map((people, index) => (
@@ -303,7 +330,7 @@ const People = () => {
 				className="flex flex-col items-start md:items-center max-w-6xl mx-auto w-full pt-16 pb-4"
 			>
 				<h1 className=" text-4xl leading-tight sm:leading-normal sm:text-5xl font-bold mt-7 mb-10 md:mb-14 relative before:w-2/3 before:absolute before:h-1 before:bg-primary-500 before:-bottom-3 before:left-1">
-					Research Fellow
+					Research Fellows
 				</h1>
 				<div className="grid lg:grid-cols-3 md:grid-cols-2 grid-cols-1 gap-8">
 					{researchFellow.map((people, index) => (
