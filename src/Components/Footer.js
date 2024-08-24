@@ -19,19 +19,19 @@ const Footer = () => {
 					<h1 className="font-semibold text-primary-400">Our Team</h1>
 					<div className="flex flex-col gap-2 max-w-60">
 						<p className="hover:underline cursor-pointer">
-							<a href="/people">Senior Leadership</a>
+							<a href="/people/Senior Leadership">Senior Leadership</a>
 						</p>
 						<p className="hover:underline cursor-pointer">
-							<a href="/people">Project Leads</a>
+							<a href="/people/Principal Investigator">Principal Investigator</a>
 						</p>
 						<p className="hover:underline cursor-pointer">
-							<a href="/people">Project Collabrators</a>
+							<a href="/people/Co-Principal Investigator">Co-Principal Investigator</a>
 						</p>
 						<p className="hover:underline cursor-pointer">
-							<a href="/people">Research Fellows</a>
+							<a href="/people/Research Fellows">Research Fellows</a>
 						</p>
 						<p className="hover:underline cursor-pointer">
-							<a href="/people">Project Interns</a>
+							<a href="/people/Research Interns">Research Interns</a>
 						</p>
 					</div>
 				</div>
@@ -39,13 +39,13 @@ const Footer = () => {
 					<h1 className="font-semibold text-primary-400">Work With Us</h1>
 					<div className="flex flex-col gap-2 max-w-60">
 						<p className="hover:underline cursor-pointer">
-							<a href="/#">Research Fellows</a>
+							<a href="/work-with-us/Research Fellows">Research Fellows</a>
 						</p>
 						<p className="hover:underline cursor-pointer">
-							<a href="/#">Project Interns</a>
+							<a href="/work-with-us/Project Interns">Project Interns</a>
 						</p>
 						<p className="hover:underline cursor-pointer">
-							<a href="/#">Staff</a>
+							<a href="/work-with-us/Staff">Staff</a>
 						</p>
 					</div>
 				</div>

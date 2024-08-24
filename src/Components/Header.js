@@ -44,20 +44,17 @@ const Navbar = () => {
 			<div className="fixed top-0 left-0 w-full bg-white h-20 border flex items-center justify-between z-50 shadow-[0_0_60px_0_rgba(0,0,0,.07)]">
 				<Link
 					to="/"
-					className="h-full ml-3 p-2 flex items-center justify-center gap-3"
+					className="lg:h-full lg:ml-3 ml-4 p-2 gap-3"
 				>
 					{/* <img
 						src="/images/daiict-logo.jpg"
 						alt=""
 						className="h-full object-cover opacity-75"
 					/> */}
-					<p className="text-3xl text-primary-1000 font-Open-sans font-semibold leading-tight">
+					<p className="lg:text-3xl text-base text-primary-1000 font-Open-sans font-semibold leading-tight">
 						Smart Energy Learning Centre
-						<br />
-						<p className="text-xs text-primary-500 font-light font-Open-sans ">A New Research Centre at DA-IICT funded by BSES Delhi, India</p>
 					</p>
-					
-					
+					<p className="text-[9px] lg:text-xs text-primary-500 font-light font-Open-sans ">A New Research Centre at DA-IICT funded by BSES Delhi, India</p>
 				</Link>
 				<div className="lg:flex hidden items-center justify-between h-full px-5 bg-white">
 					<div className="h-full">
@@ -103,27 +100,16 @@ const Navbar = () => {
 				</div>
 				<div
 					onClick={() => {
-						document
-							.getElementById("mobileNavbar")
-							.classList.toggle("-top-full");
-						document
-							.getElementById("mobileNavbar")
-							.classList.toggle("top-24");
-						if (
-							document.getElementsByTagName("BODY")[0].style
-								.overflow !== "hidden"
-						) {
-							document.getElementsByTagName(
-								"BODY"
-							)[0].style.overflow = "hidden";
+						document.getElementById("mobileNavbar").classList.toggle("-top-full");
+						document.getElementById("mobileNavbar").classList.toggle("top-20");
+						if (document.getElementsByTagName("BODY")[0].style.overflow !== "hidden") {
+							document.getElementsByTagName("BODY")[0].style.overflow = "hidden";
 						} else {
-							document.getElementsByTagName(
-								"BODY"
-							)[0].style.overflow = "visible";
+							document.getElementsByTagName("BODY")[0].style.overflow = "visible";
 						}
 						setactiveDropdown("");
 					}}
-					className="lg:hidden block px-5"
+					className="lg:hidden block pr-4"
 				>
 					<svg
 						xmlns="http://www.w3.org/2000/svg"
@@ -144,58 +130,37 @@ const Navbar = () => {
 			>
 				<ul className="p-6 flex flex-col gap-3 h-full">
 					{navbarData.map((item, index) => (
-						<li
-							key={index}
-							className={
-								"overflow-hidden transition-all duration-300 " +
-								(activeDropdown === item.title
-									? "max-h-full"
-									: "max-h-10")
-							}
-						>
+						<li key={index} className={"overflow-hidden transition-all duration-300 " + (activeDropdown === item.title ? "max-h-full" : "max-h-10")}>
 							<div
-								onClick={() => {
-									setactiveDropdown(
-										activeDropdown === item.title
-											? ""
-											: item.title
-									);
-								}}
+								onClick={() => { setactiveDropdown(activeDropdown === item.title ? "" : item.title); }}
 								className="flex items-center justify-between border-b pb-3"
 							>
-								<a href={item.link}>
+								<a
+									href={item.link}
+									onClick={() => {
+										document.getElementById("mobileNavbar").classList.toggle("-top-full");
+										document.getElementById("mobileNavbar").classList.toggle("top-20");
+										if (document.getElementsByTagName("BODY")[0].style.overflow !== "hidden") {
+											document.getElementsByTagName("BODY")[0].style.overflow = "hidden";
+										} else {
+											document.getElementsByTagName("BODY")[0].style.overflow = "visible";
+										}
+										setactiveDropdown("");
+									}}
+								>
 									{item.title.replace(" ▾", "")}
 								</a>
 								{item.submenus.length > 0 && (
-									<i
-										className={
-											"fa-solid fa-plus transition-all duration-300 " +
-											(activeDropdown === item.title
-												? "-rotate-45"
-												: "")
-										}
-									></i>
+									<i className={"fa-solid fa-plus transition-all duration-300 " + (activeDropdown === item.title ? "-rotate-45" : "")} ></i>
 								)}
 							</div>
 							{item.submenus.length > 0 && (
-								<div
-									className={
-										"origin-top transition-all duration-300 " +
-										(activeDropdown === item.title
-											? "scale-y-100 opacity-100"
-											: "scale-y-0 opacity-0")
-									}
-								>
+								<div className={"origin-top transition-all duration-300 " + (activeDropdown === item.title ? "scale-y-100 opacity-100" : "scale-y-0 opacity-0")}>
 									<ul>
 										{item.submenus.map(
 											(submenu, submenuIndex) => (
-												<li
-													key={submenuIndex}
-													className="px-6 py-3 border-b capitalize"
-												>
-													<a href={submenu[1]}>
-														{submenu[0]}
-													</a>
+												<li key={submenuIndex} className="px-6 py-3 border-b capitalize">
+													<a href={submenu[1]}>{submenu[0]}</a>
 												</li>
 											)
 										)}

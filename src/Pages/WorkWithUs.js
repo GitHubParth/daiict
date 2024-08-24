@@ -1,8 +1,10 @@
 import React,{useState} from 'react'
+import { useParams } from 'react-router-dom';
 
 const WorkWithUs = () => {
+    const { role } = useParams("role");
 
-    const [activeDropdown, setActiveDropdown] = useState("Research Fellows");
+    const [activeDropdown, setActiveDropdown] = useState(role ? role : "Research Fellows");
 
     const researchFellowData = [
         {
@@ -46,11 +48,11 @@ const WorkWithUs = () => {
 			</div> */}
             {/* <h1 className="w-full max-w-6xl mx-auto text-7xl font-bold mt-20 pt-20 text-primary-600">Work With Us</h1> */}
 			<div id="research-fellows" className="max-w-6xl w-full h-fit mx-auto md:pt-14 lg:px-0 md:px-12 sm:px-10 px-8">
-                <div className="w-full flex items-center justify-between" onClick={() => {setActiveDropdown(activeDropdown === "Research Fellows" ? "" : "Research Fellows");}}>
+                <div className="w-full flex items-center justify-between border-b-[1px] border-black" onClick={() => {setActiveDropdown(activeDropdown === "Research Fellows" ? "" : "Research Fellows");}}>
                     <h1 className="text-4xl w-full leading-tight sm:leading-normal sm:text-5xl font-bold mt-7 mb-10 md:mb-14 relative before:w-32 before:absolute before:h-1 before:bg-primary-500 before:-bottom-3 before:left-1">
                         Research Fellows
                     </h1>
-                    <div className="p-2 bg-primary-500/5 cursor-pointer rounded-full">
+                    <div className="p-2 bg-primary-500/5 cursor-pointer rounded-full shadow">
                         <svg 
                             fill="currentColor" 
                             className={"w-6 h-6 transition-all duration-300 " + (activeDropdown === "Research Fellows" ? "-rotate-180" : "rotate-0")}
@@ -67,7 +69,7 @@ const WorkWithUs = () => {
                     {researchFellowData.map((item, idx) => {
                         return (
                             <div 
-                                className="w-full border-t border-gray-400 py-4 md:px-3" 
+                                className="w-full border-t border-gray-400 first:border-0 py-4 md:px-3"
                                 key={idx}
                                 onClick={() => {
                                     // const pdfUrl = "https://css4.pub/2015/icelandic/dictionary.pdf";
@@ -91,11 +93,11 @@ const WorkWithUs = () => {
                 </div>
 			</div>
 			<div id="project-interns" className="max-w-6xl w-full h-full mx-auto md:pt-14 pt-12 lg:px-0 md:px-12 sm:px-10 px-8">
-                <div className="w-full flex items-center justify-between" onClick={() => {setActiveDropdown(activeDropdown === "Project Interns" ? "" : "Project Interns");}}>
+                <div className="w-full flex items-center justify-between border-b-[1px] border-black" onClick={() => {setActiveDropdown(activeDropdown === "Project Interns" ? "" : "Project Interns");}}>
                     <h1 className="text-4xl w-full leading-tight sm:leading-normal sm:text-5xl font-bold mt-7 mb-10 md:mb-14 relative before:w-32 before:absolute before:h-1 before:bg-primary-500 before:-bottom-3 before:left-1">
                         Project Interns
                     </h1>
-                    <div className="p-2 bg-primary-500/5 cursor-pointer rounded-full">
+                    <div className="p-2 bg-primary-500/5 cursor-pointer rounded-full shadow">
                         <svg 
                             fill="currentColor" 
                             className={"w-6 h-6 transition-all duration-300 " + (activeDropdown === "Project Interns" ? "-rotate-180" : "rotate-0")}
@@ -111,7 +113,7 @@ const WorkWithUs = () => {
                 <div className={"w-full last:border-b last:border-gray-400 origin-top transition-all duration-300 " + (activeDropdown === "Project Interns" ? "scale-y-100 opacity-100 h-auto" : "scale-y-0 opacity-0 h-0")}>
                     { researchFellowData.map((item, idx) => {
                         return (
-                            <div className="w-full border-t border-gray-400 py-4 md:px-3" key={idx}>
+                            <div className="w-full border-t border-gray-400 py-4 md:px-3 first:border-0" key={idx}>
                                 <h2 className="md:text-2xl text-xl cursor-pointer transition-all duration-300 hover:text-primary-700">{item.title}</h2>
                                 <div className="w-full text-sm mt-4 flex md:flex-row flex-col md:items-center items-start justify-between gap-4">
                                     <p className="font-medium text-primary-600 flex items-center gap-1">Posted :<span className="text-black font-normal">{item.posted_on}</span></p>
@@ -124,11 +126,11 @@ const WorkWithUs = () => {
                 </div>
 			</div>
 			<div id="staff" className="max-w-6xl w-full h-full mx-auto md:pt-14 pt-12 mb-20 lg:px-0 md:px-12 sm:px-10 px-8">
-                <div className="w-full flex items-center justify-between" onClick={() => {setActiveDropdown(activeDropdown === "Staff" ? "" : "Staff");}}>
+                <div className="w-full flex items-center justify-between border-b-[1px] border-black" onClick={() => {setActiveDropdown(activeDropdown === "Staff" ? "" : "Staff");}}>
                     <h1 className="text-4xl w-full leading-tight sm:leading-normal sm:text-5xl font-bold mt-7 mb-10 md:mb-14 relative before:w-12 before:absolute before:h-1 before:bg-primary-500 before:-bottom-3 before:left-1">
                         Staff
                     </h1>
-                    <div className="p-2 bg-primary-500/5 cursor-pointer rounded-full">
+                    <div className="p-2 bg-primary-500/5 cursor-pointer rounded-full shadow">
                         <svg 
                             fill="currentColor" 
                             className={"w-6 h-6 transition-all duration-300 " + (activeDropdown === "Staff" ? "-rotate-180" : "rotate-0")}
@@ -144,7 +146,7 @@ const WorkWithUs = () => {
                 <div className={"w-full last:border-b last:border-gray-400 origin-top transition-all duration-300 " + (activeDropdown === "Staff" ? "scale-y-100 opacity-100 h-auto" : "scale-y-0 opacity-0 h-0")}>
                     {researchFellowData.map((item, idx) => {
                         return (
-                            <div className="w-full border-t border-gray-400 py-4 md:px-3" key={idx}>
+                            <div className="w-full border-t border-gray-400 py-4 md:px-3 first:border-0" key={idx}>
                                 <h2 className="md:text-2xl text-xl cursor-pointer transition-all duration-300 hover:text-primary-700">{item.title}</h2>
                                 <div className="w-full text-sm mt-4 flex md:flex-row flex-col md:items-center items-start justify-between gap-4">
                                     <p className="font-medium text-primary-600 flex items-center gap-1">Posted :<span className="text-black font-normal">{item.posted_on}</span></p>

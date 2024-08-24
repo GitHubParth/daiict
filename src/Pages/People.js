@@ -1,7 +1,12 @@
 import React, { useEffect, useState } from "react";
+import { useParams } from "react-router-dom";
 
 const People = () => {
-	useEffect(() => {              
+	const { role } = useParams("role");
+	const [currDesignation, setCurrDesignation] = useState(role ? role : "All");
+	const [filter, setFilter] = useState(false);
+
+	useEffect(() => {
 		const href = window.location.href.substring(
 			window.location.href.lastIndexOf("#") + 1
 		);
@@ -169,8 +174,6 @@ const People = () => {
 		},
 	];
 
-	const [currDesignation, setCurrDesignation] = useState("All");
-	
 	const peoples = peoplesList.filter(filterDesignation);
 
 	function filterDesignation(people) {
@@ -193,22 +196,49 @@ const People = () => {
 					</p>
 				</div>
 			</div> */}
-			<div className="flex flex-col items-start md:items-center max-w-6xl mx-auto w-full pt-16 pb-4">
-				<ul className="flex items-center justify-center flex-wrap gap-4">
+			<div className="flex flex-col items-start md:items-center max-w-6xl mx-auto w-full pt-16 pb-4 px-4 lg:px-0">
+				<ul className="hidden md:flex items-center justify-center flex-wrap gap-4">
 					{designation.map((des, i) => (
 						<li
 							key={i}
 							onClick={() => setCurrDesignation(des)}
-							className={`p-2 px-4 text-lg font-medium font-Inter rounded-lg transition-colors duration-300 cursor-pointer hover:bg-primary-200 ${
-								currDesignation === des
-									? "bg-primary-200 text-primary-800"
-									: ""
-							} `}
+							className={`p-2 px-4 text-lg font-medium font-Inter rounded-lg transition-colors duration-300 cursor-pointer hover:bg-primary-200 ${currDesignation === des
+								? "bg-primary-200 text-primary-800"
+								: ""
+								} `}
 						>
 							{des}
 						</li>
 					))}
 				</ul>
+				<div className="w-full relative md:hidden block">
+					<div
+						className="flex items-center justify-between border border-black pr-4 rounded-xl overflow-hidden bg-gray-400"
+						onClick={() => setFilter(!filter)}
+					>
+						<p className="border-r border-black w-[89%] px-3 py-2 bg-gray-200 backdrop-blur-lg">{currDesignation}</p>
+						<svg
+							xmlns="http://www.w3.org/2000/svg"
+							width={16}
+							height={16}
+							fill="currentColor"
+							className=""
+							viewBox="0 0 16 16"
+						>
+							<path d="M1.5 1.5A.5.5 0 0 1 2 1h12a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-.128.334L10 8.692V13.5a.5.5 0 0 1-.342.474l-3 1A.5.5 0 0 1 6 14.5V8.692L1.628 3.834A.5.5 0 0 1 1.5 3.5zm1 .5v1.308l4.372 4.858A.5.5 0 0 1 7 8.5v5.306l2-.666V8.5a.5.5 0 0 1 .128-.334L13.5 3.308V2z" />
+						</svg>
+					</div>
+					<div className={"w-full absolute top-11 p-3 bg-transparent backdrop-blur-lg rounded-xl border border-black flex flex-col gap-3 z-10 origin-top transition-all duration-300 " + (filter ? "scale-y-100 opacity-100" : "scale-y-0 opacity-0")}>
+						{designation.map((des, i) => (
+							<p key={i} onClick={() => {
+								setCurrDesignation(des)
+								setFilter(!filter)
+							}}>
+								{des}
+							</p>
+						))}
+					</div>
+				</div>
 				<h1 className="text-4xl leading-tight sm:leading-normal sm:text-5xl font-bold mt-7 mb-10 md:mb-14 relative before:w-2/3 before:absolute before:h-1 before:bg-primary-500 before:-bottom-3 before:left-1">
 					Our Team
 				</h1>
