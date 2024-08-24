@@ -17,28 +17,27 @@ const HomePage = () => {
 			element.scrollIntoView({ behavior: "smooth" });
 		}
 	}, []);
+
 	const swiperRef = useRef();
 	const heroSwiperRef = useRef();
 
-
-
-	const aboutUsData = [
-		{
-			image: "https://www.sydney.edu.au/content/dam/campus-facilities-and-amenities/research-facilities/yellow-light-nano-clean-room.jpg/jcr:content/renditions/cq5dam.web.800.1173.2x.jpeg",
-			name: "Facilities",
-			desc: "Access 500+ cutting-edge instruments supported by more than 100 highly skilled technicians.",
-		},
-		// {
-		// 	image: "https://www.sydney.edu.au/content/dam/campus-facilities-and-amenities/libraries/_dsc4668-2.jpg/jcr:content/renditions/cq5dam.web.800.1047.2x.jpeg",
-		// 	name: "Centres",
-		// 	desc: "150+ research centres and networks focusing on some of the world's greatest challenges.",
-		// },
-		{
-			image: "https://www.sydney.edu.au/content/dam/people/_33i7057-2.jpg/jcr:content/renditions/cq5dam.web.800.1105.2x.jpeg",
-			name: "Find a researcher",
-			desc: "Our academics are leaders in their fields, publishing thousands of papers each year.",
-		},
-	];
+	// const aboutUsData = [
+	// 	{
+	// 		image: "https://www.sydney.edu.au/content/dam/campus-facilities-and-amenities/research-facilities/yellow-light-nano-clean-room.jpg/jcr:content/renditions/cq5dam.web.800.1173.2x.jpeg",
+	// 		name: "Facilities",
+	// 		desc: "Access 500+ cutting-edge instruments supported by more than 100 highly skilled technicians.",
+	// 	},
+	// 	// {
+	// 	// 	image: "https://www.sydney.edu.au/content/dam/campus-facilities-and-amenities/libraries/_dsc4668-2.jpg/jcr:content/renditions/cq5dam.web.800.1047.2x.jpeg",
+	// 	// 	name: "Centres",
+	// 	// 	desc: "150+ research centres and networks focusing on some of the world's greatest challenges.",
+	// 	// },
+	// 	{
+	// 		image: "https://www.sydney.edu.au/content/dam/people/_33i7057-2.jpg/jcr:content/renditions/cq5dam.web.800.1105.2x.jpeg",
+	// 		name: "Find a researcher",
+	// 		desc: "Our academics are leaders in their fields, publishing thousands of papers each year.",
+	// 	},
+	// ];
 
 	const ourImpactData = [
 		{
@@ -68,18 +67,18 @@ const HomePage = () => {
 		},
 	];
 
-	const newsData = [
-		{
-			image: "https://www.sydney.edu.au/content/dam/people/sam-banister-(right)-josh-ismin-(left)-psylo-high-res.jpg/jcr:content/renditions/cq5dam.web.800.533.2x.jpeg",
-			name: "New psychedelic treatments for mental health",
-			desc: "University of Sydney researchers have partnered with Psylo, a global biotechnology startup, to develop innovative treatments for psychiatric and neurological disorders.",
-		},
-		{
-			image: "https://www.sydney.edu.au/content/dam/corporate/images/faculty-of-arts-and-social-sciences/research/research-centres/sssharc/new-law-school-building.jpg/jcr:content/renditions/cq5dam.web.800.533.2x.jpeg",
-			name: "ARC invests in research partnerships with industry",
-			desc: "The Australian Research Council has awarded $5.15m to industry projects at the University, along with funding for an Industrial Transformation Training Centre to prepare leaders of Australia's future quantum computing industry.",
-		},
-	];
+	// const newsData = [
+	// 	{
+	// 		image: "https://www.sydney.edu.au/content/dam/people/sam-banister-(right)-josh-ismin-(left)-psylo-high-res.jpg/jcr:content/renditions/cq5dam.web.800.533.2x.jpeg",
+	// 		name: "New psychedelic treatments for mental health",
+	// 		desc: "University of Sydney researchers have partnered with Psylo, a global biotechnology startup, to develop innovative treatments for psychiatric and neurological disorders.",
+	// 	},
+	// 	{
+	// 		image: "https://www.sydney.edu.au/content/dam/corporate/images/faculty-of-arts-and-social-sciences/research/research-centres/sssharc/new-law-school-building.jpg/jcr:content/renditions/cq5dam.web.800.533.2x.jpeg",
+	// 		name: "ARC invests in research partnerships with industry",
+	// 		desc: "The Australian Research Council has awarded $5.15m to industry projects at the University, along with funding for an Industrial Transformation Training Centre to prepare leaders of Australia's future quantum computing industry.",
+	// 	},
+	// ];
 
 	const themesData = [
 		{
@@ -169,7 +168,7 @@ const HomePage = () => {
 					className="mySwiper w-full h-full px-8 relative">
 					<div className="absolute bottom-5 left-1/2 translate-x-[-50%] flex gap-2 z-20">
 						{[0, 1, 2, 3, 4].map((num, idx) => (
-							<button key={idx} onClick={() => { heroSwiperRef.current.slideTo(num); setCurrHeroIdx(num) }} className={currHeroIdx === num ? "bg-primary-500 h-1.5 !outline-none lg:w-14 w-5 hover:bg-primary-500 rounded-full" : "bg-gray-500 h-1.5 !outline-none lg:w-14 w-5 hover:bg-primary-500 rounded-full"}></button>
+							<button key={idx} onClick={() => {heroSwiperRef.current.slideTo(num); setCurrHeroIdx(num) }} className={currHeroIdx === num ? "bg-primary-500 h-1.5 !outline-none lg:w-14 w-5 hover:bg-primary-500 rounded-full" : "bg-gray-500 h-1.5 !outline-none lg:w-14 w-5 hover:bg-primary-500 rounded-full"}></button>
 						))}
 					</div>
 					{heroSwiperData.map((item, index) => (
@@ -186,7 +185,6 @@ const HomePage = () => {
 						</SwiperSlide>
 					))}
 				</Swiper>
-
 			</div>
 			{/* <GridCards
 				cols="3"
@@ -198,9 +196,7 @@ const HomePage = () => {
 				<div className="w-full max-w-6xl px-4 lg:px-0 flex flex-col gap-8">
 					<div className="flex items-center justify-between">
 						<div className="flex flex-col gap-4">
-							<p className="lg:text-5xl text-3xl font-semibold font-Open-sans">
-								News
-							</p>
+							<p className="lg:text-5xl text-3xl font-semibold font-Open-sans">News</p>
 							<div className="w-[50%] h-[4px] bg-primary-500" />
 						</div>
 						<div className="flex items-center gap-5 lg:hidden">
@@ -263,19 +259,14 @@ const HomePage = () => {
 							className="mySwiper w-full px-8"
 						>
 							{themesData.map((item, index) => (
-								<SwiperSlide
-									className="w-full flex flex-col gap-3 group"
-									key={index}
-								>
+								<SwiperSlide className="w-full flex flex-col gap-3 group" key={index}>
 									<img
 										src={item.image}
 										alt=""
 										className="w-full lg:h-80 h-64 object-cover"
 									/>
 									<div className="flex flex-col gap-1 lg:mt-5 mt-3">
-										<p className="lg:text-2xl text-xl font-semibold group-hover:text-primary-500 truncate transition-all duration-300">
-											{item.name}
-										</p>
+										<p className="lg:text-2xl text-xl font-semibold group-hover:text-primary-500 truncate transition-all duration-300">{item.name}</p>
 										<div className="w-0 group-hover:w-[15%] h-[2px] bg-primary-500 transition-all duration-300"></div>
 									</div>
 									<p className="line-clamp-2 lg:mt-4 mt-3 text-xs lg:text-base">{item.desc}</p>
@@ -330,34 +321,24 @@ const HomePage = () => {
 			<div className="w-full flex items-center justify-center gap-10 py-16">
 				<div className="w-full max-w-6xl flex flex-col gap-8 px-4 lg:px-0">
 					<div className="flex flex-col gap-4">
-						<p className="text-5xl font-semibold font-Open-sans capitalize">
-							Resources
-						</p>
+						<p className="text-5xl font-semibold font-Open-sans capitalize">Resources</p>
 						<div className="w-[9%] h-[4px] bg-primary-500" />
 					</div>
-					<div className="w-full grid lg:grid-cols-4 grid-cols-1 gap-4">
+					<div className="w-full grid lg:grid-cols-4 md:grid-cols-2 grid-cols-1 gap-4">
 						<div className="w-full h-full aspect-square rounded-xl px-7 border flex flex-col gap-5 items-start justify-center group hover:border-primary-500 hover:shadow-[0_0_60px_0_rgba(0,0,0,.07)] transition-all duration-300">
-							<p className="text-4xl font-bold group-hover:text-primary-500 transition-all duration-300">
-								1492
-							</p>
+							<p className="text-4xl font-bold group-hover:text-primary-500 transition-all duration-300">1492</p>
 							<p>Laboratories in 100+ states</p>
 						</div>
 						<div className="w-full h-full aspect-square rounded-xl px-7 border flex flex-col gap-5 items-start justify-center group hover:border-primary-500 hover:shadow-[0_0_60px_0_rgba(0,0,0,.07)] transition-all duration-300">
-							<p className="text-4xl font-bold group-hover:text-primary-500 transition-all duration-300">
-								52
-							</p>
+							<p className="text-4xl font-bold group-hover:text-primary-500 transition-all duration-300">52</p>
 							<p>Laboratories in 100+ states</p>
 						</div>
 						<div className="w-full h-full aspect-square rounded-xl px-7 border flex flex-col gap-5 items-start justify-center group hover:border-primary-500 hover:shadow-[0_0_60px_0_rgba(0,0,0,.07)] transition-all duration-300">
-							<p className="text-4xl font-bold group-hover:text-primary-500 transition-all duration-300">
-								1256
-							</p>
+							<p className="text-4xl font-bold group-hover:text-primary-500 transition-all duration-300">1256</p>
 							<p>Laboratories in 100+ states</p>
 						</div>
 						<div className="w-full h-full aspect-square rounded-xl px-7 border flex flex-col gap-5 items-start justify-center group hover:border-primary-500 hover:shadow-[0_0_60px_0_rgba(0,0,0,.07)] transition-all duration-300">
-							<p className="text-4xl font-bold group-hover:text-primary-500 transition-all duration-300">
-								560
-							</p>
+							<p className="text-4xl font-bold group-hover:text-primary-500 transition-all duration-300">560</p>
 							<p>Laboratories in 100+ states</p>
 						</div>
 					</div>

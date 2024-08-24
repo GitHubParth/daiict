@@ -35,17 +35,12 @@ const Navbar = () => {
 			link: "/about",
 			submenus: [],
 		},
-
-
 	];
 
 	return (
 		<>
 			<div className="fixed top-0 left-0 w-full bg-white h-20 border flex items-center justify-between z-50 shadow-[0_0_60px_0_rgba(0,0,0,.07)]">
-				<Link
-					to="/"
-					className="lg:h-full lg:ml-3 ml-4 p-2 gap-3"
-				>
+				<Link to="/" className="lg:h-full lg:ml-3 ml-4 pr-2 lg:p-2 gap-3">
 					{/* <img
 						src="/images/daiict-logo.jpg"
 						alt=""
@@ -60,14 +55,8 @@ const Navbar = () => {
 					<div className="h-full">
 						<ul className="flex gap-5 h-full">
 							{navbarData.map((item, index) => (
-								<li
-									key={index}
-									className="relative group h-full outline-none font-Open-sans"
-								>
-									<a
-										href={item?.link}
-										className="uppercase text-base font-semibold h-full flex items-center justify-center group-hover:text-primary-500 transition-all duration-300"
-									>
+								<li key={index} className="relative group h-full outline-none font-Open-sans">
+									<a href={item?.link} className="uppercase text-base font-semibold h-full flex items-center justify-center group-hover:text-primary-500 transition-all duration-300">
 										{item?.title}
 									</a>
 									<div className="absolute bottom-6 left-0 h-[2px] w-0 bg-primary-500 group-hover:w-full transition-all duration-300"></div>
@@ -76,17 +65,8 @@ const Navbar = () => {
 											<ul className="flex flex-col gap-2">
 												{item?.submenus?.map(
 													(submenu, subIndex) => (
-														<li
-															key={subIndex}
-															className="hover:text-primary-500 capitalize transition-all duration-300"
-														>
-															<a
-																href={
-																	submenu[1]
-																}
-															>
-																{submenu[0]}
-															</a>
+														<li key={subIndex} className="hover:text-primary-500 capitalize transition-all duration-300">
+															<a href={submenu[1]}>{submenu[0]}</a>
 														</li>
 													)
 												)}
@@ -124,15 +104,14 @@ const Navbar = () => {
 					</svg>
 				</div>
 			</div>
-			<div
-				id="mobileNavbar"
-				className="block lg:hidden fixed -top-full w-full min-h-[calc(100vh-80px)] max-h-[calc(100vh-80px)] overflow-scroll bg-primary-500 z-40 text-white transition-all duration-300"
-			>
+			<div id="mobileNavbar" className="block lg:hidden fixed -top-full w-full min-h-[calc(100vh-80px)] max-h-[calc(100vh-80px)] overflow-scroll bg-primary-500 z-40 text-white transition-all duration-300">
 				<ul className="p-6 flex flex-col gap-3 h-full">
 					{navbarData.map((item, index) => (
 						<li key={index} className={"overflow-hidden transition-all duration-300 " + (activeDropdown === item.title ? "max-h-full" : "max-h-10")}>
 							<div
-								onClick={() => { setactiveDropdown(activeDropdown === item.title ? "" : item.title); }}
+								onClick={() => {
+									setactiveDropdown(activeDropdown === item.title ? "" : item.title)
+								}}
 								className="flex items-center justify-between border-b pb-3"
 							>
 								<a

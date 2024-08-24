@@ -2,10 +2,6 @@ import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 
 const People = () => {
-	const { role } = useParams("role");
-	const [currDesignation, setCurrDesignation] = useState(role ? role : "All");
-	const [filter, setFilter] = useState(false);
-
 	useEffect(() => {
 		const href = window.location.href.substring(
 			window.location.href.lastIndexOf("#") + 1
@@ -15,6 +11,10 @@ const People = () => {
 			element.scrollIntoView({ behavior: "smooth" });
 		}
 	}, []);
+
+	const { role } = useParams("role");
+	const [currDesignation, setCurrDesignation] = useState(role ? role : "All");
+	const [filter, setFilter] = useState(false);
 
 	const designation = ["All", "Senior Leadership", "Principal Investigator", "Co-Principal Investigator", "Research Fellows", "Research Interns"];
 
@@ -197,15 +197,12 @@ const People = () => {
 				</div>
 			</div> */}
 			<div className="flex flex-col items-start md:items-center max-w-6xl mx-auto w-full pt-16 pb-4 px-4 lg:px-0">
-				<ul className="hidden md:flex items-center justify-center flex-wrap gap-4">
+				<ul className="hidden md:flex items-center justify-center flex-wrap gap-4 md:gap-y-2">
 					{designation.map((des, i) => (
 						<li
 							key={i}
 							onClick={() => setCurrDesignation(des)}
-							className={`p-2 px-4 text-lg font-medium font-Inter rounded-lg transition-colors duration-300 cursor-pointer hover:bg-primary-200 ${currDesignation === des
-								? "bg-primary-200 text-primary-800"
-								: ""
-								} `}
+							className={`p-2 px-4 text-lg font-medium font-Inter rounded-lg transition-colors duration-300 cursor-pointer hover:bg-primary-200 ${currDesignation === des ? "bg-primary-200 text-primary-800" : ""} `}
 						>
 							{des}
 						</li>
@@ -230,24 +227,22 @@ const People = () => {
 					</div>
 					<div className={"w-full absolute top-11 p-3 bg-transparent backdrop-blur-lg rounded-xl border border-black flex flex-col gap-3 z-10 origin-top transition-all duration-300 " + (filter ? "scale-y-100 opacity-100" : "scale-y-0 opacity-0")}>
 						{designation.map((des, i) => (
-							<p key={i} onClick={() => {
-								setCurrDesignation(des)
-								setFilter(!filter)
-							}}>
+							<p
+								key={i}
+								onClick={() => {
+									setCurrDesignation(des)
+									setFilter(!filter)
+								}}
+							>
 								{des}
 							</p>
 						))}
 					</div>
 				</div>
-				<h1 className="text-4xl leading-tight sm:leading-normal sm:text-5xl font-bold mt-7 mb-10 md:mb-14 relative before:w-2/3 before:absolute before:h-1 before:bg-primary-500 before:-bottom-3 before:left-1">
-					Our Team
-				</h1>
+				<h1 className="text-4xl leading-tight sm:leading-normal sm:text-5xl font-bold mt-7 mb-10 md:mb-14 relative before:w-2/3 before:absolute before:h-1 before:bg-primary-500 before:-bottom-3 before:left-1">Our Team</h1>
 				<div className="grid lg:grid-cols-3 md:grid-cols-2 grid-cols-1 gap-8">
 					{peoples.map((people, index) => (
-						<div
-							className="w-full flex relative group rounded-xl overflow-hidden"
-							key={index}
-						>
+						<div className="w-full flex relative group rounded-xl overflow-hidden" key={index}>
 							<div className="w-full h-1 bg-primary-500 absolute bottom-0 left-0 z-10" />
 							<img
 								src={people.image}
@@ -255,9 +250,7 @@ const People = () => {
 								className="w-96 h-80 object-cover"
 							/>
 							<div className="w-full text-white absolute bottom-0 group-hover:h-48 group-hover:py-5 transition-all duration-300 h-20 flex flex-col items-start justify-start gap-1 py-3 px-5 bg-[rgba(0,0,0,0.8)]">
-								<h1 className="text-xl font-bold text-white">
-									{people.name}
-								</h1>
+								<h1 className="text-xl font-bold text-white">{people.name}</h1>
 								<p className="mb-5">{people.designation}</p>
 								<p>{people.degree}</p>
 							</div>

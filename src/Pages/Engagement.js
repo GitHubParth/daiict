@@ -14,6 +14,7 @@ const Engagement = () => {
 			element.scrollIntoView({ behavior: "smooth" });
 		}
 	}, []);
+
 	const swiperRef = useRef();
 	const swiperRef2 = useRef();
 
@@ -66,13 +67,49 @@ const Engagement = () => {
 				</div>
 			</div> */}
 			<div className="max-w-6xl h-full mx-auto py-10">
-				<div id="events" className="flex flex-col gap-10 py-24">
+				<div id="events" className="flex flex-col gap-10 py-24 px-4 lg:px-0">
 					<div className="flex items-center justify-between">
-						<div className="flex flex-col gap-4">
-							<p className="text-5xl font-semibold font-Open-sans">
-								Events
-							</p>
-							<div className="w-[70%] h-[4px] bg-primary-500" />
+						<div className="flex flex-col lg:gap-4 gap-2">
+							<p className="lg:text-5xl text-3xl font-semibold font-Open-sans">Events</p>
+							<div className="w-[60%] h-[4px] bg-primary-500" />
+						</div>
+						<div className="flex items-center gap-5 lg:hidden">
+							<button
+								onClick={() => swiperRef2.current?.slidePrev()}
+								className="swiper-button-prev w-8 h-8 lg:w-12 lg:h-12 rounded-full flex items-center justify-center bg-primary-500/5 hover:bg-primary-500/50"
+							>
+								<svg
+									xmlns="http://www.w3.org/2000/svg"
+									width={20}
+									height={20}
+									fill="currentColor"
+									className="bi bi-chevron-left"
+									viewBox="0 0 16 16"
+								>
+									<path
+										fillRule="evenodd"
+										d="M11.354 1.646a.5.5 0 0 1 0 .708L5.707 8l5.647 5.646a.5.5 0 0 1-.708.708l-6-6a.5.5 0 0 1 0-.708l6-6a.5.5 0 0 1 .708 0"
+									/>
+								</svg>
+							</button>
+							<button
+								onClick={() => swiperRef2.current?.slideNext()}
+								className="swiper-button-next w-8 h-8 lg:w-12 lg:h-12 rounded-full flex items-center justify-center bg-primary-500/5 hover:bg-primary-500/50"
+							>
+								<svg
+									xmlns="http://www.w3.org/2000/svg"
+									width={20}
+									height={20}
+									fill="currentColor"
+									className="bi bi-chevron-right"
+									viewBox="0 0 16 16"
+								>
+									<path
+										fillRule="evenodd"
+										d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708"
+									/>
+								</svg>
+							</button>
 						</div>
 					</div>
 					<div className="relative">
@@ -101,14 +138,8 @@ const Engagement = () => {
 							className="mySwiper w-full px-8"
 						>
 							{newsData.map((item, index) => (
-								<SwiperSlide
-									className="w-full flex flex-col gap-3 group"
-									key={index}
-								>
-									<div
-										key={index}
-										className="w-full group"
-									>
+								<SwiperSlide className="w-full flex flex-col gap-3 group" key={index}>
+									<div key={index} className="w-full group">
 										<div className="w-full h-[70%] overflow-hidden">
 											<img
 												src={item.image}
@@ -117,15 +148,11 @@ const Engagement = () => {
 											/>
 										</div>
 										<div className="h-[30%] flex flex-col justify-evenly">
-											<div className="flex flex-col gap-0.5 mt-4">
-												<p className="text-2xl font-semibold group-hover:text-primary-500 truncate transition-all duration-300">
-													{item.name}
-												</p>
+											<div className="flex flex-col gap-0.5 lg:mt-4 mt-2">
+												<p className="lg:text-2xl text-xl font-semibold group-hover:text-primary-500 truncate transition-all duration-300">{item.name}</p>
 												<div className="w-0 group-hover:w-[15%] h-[2px] bg-primary-500 transition-all duration-300"></div>
 											</div>
-											<p className="line-clamp-2 mt-3">
-												{item.desc}
-											</p>
+											<p className="line-clamp-2 lg:mt-3 mt-2">{item.desc}</p>
 											<div className="mt-5 font-semibold flex items-center gap-2 justify-end">
 												<svg
 													xmlns="http://www.w3.org/2000/svg"
@@ -139,7 +166,7 @@ const Engagement = () => {
 													<path d="M3.5 0a.5.5 0 0 1 .5.5V1h8V.5a.5.5 0 0 1 1 0V1h1a2 2 0 0 1 2 2v11a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V3a2 2 0 0 1 2-2h1V.5a.5.5 0 0 1 .5-.5M2 2a1 1 0 0 0-1 1v11a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V3a1 1 0 0 0-1-1z" />
 													<path d="M2.5 4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5H3a.5.5 0 0 1-.5-.5z" />
 												</svg>
-												<p className="group-hover:underline group-hover:text-primary-500 transition-all duration-300">01/01/2000</p>
+												<p className="group-hover:underline group-hover:text-primary-500 transition-all duration-300 text-sm md:text-base">01/01/2000</p>
 											</div>
 										</div>
 									</div>
@@ -148,49 +175,85 @@ const Engagement = () => {
 						</Swiper>
 						<button
 							onClick={() => swiperRef2.current?.slidePrev()}
-							className="swiper-button-prev absolute top-1/2 -translate-y-1/2 -left-20 w-8 h-8 lg:w-12 lg:h-12 rounded-full flex items-center justify-center bg-primary-500 hover:bg-primary-500/50"
+							className="swiper-button-prev hidden absolute top-1/2 -translate-y-1/2 -left-20 w-8 h-8 lg:w-12 lg:h-12 rounded-full lg:flex items-center justify-center bg-primary-500/5 hover:bg-primary-500/50"
 						>
 							<svg
 								xmlns="http://www.w3.org/2000/svg"
 								width={20}
 								height={20}
 								fill="currentColor"
-								className="bi bi-arrow-left"
+								className="bi bi-chevron-left"
 								viewBox="0 0 16 16"
 							>
 								<path
 									fillRule="evenodd"
-									d="M15 8a.5.5 0 0 0-.5-.5H2.707l3.147-3.146a.5.5 0 1 0-.708-.708l-4 4a.5.5 0 0 0 0 .708l4 4a.5.5 0 0 0 .708-.708L2.707 8.5H14.5A.5.5 0 0 0 15 8"
+									d="M11.354 1.646a.5.5 0 0 1 0 .708L5.707 8l5.647 5.646a.5.5 0 0 1-.708.708l-6-6a.5.5 0 0 1 0-.708l6-6a.5.5 0 0 1 .708 0"
 								/>
 							</svg>
 						</button>
 						<button
 							onClick={() => swiperRef2.current?.slideNext()}
-							className="swiper-button-next absolute top-1/2 -translate-y-1/2 -right-20 w-8 h-8 lg:w-12 lg:h-12 rounded-full flex items-center justify-center bg-primary-500 hover:bg-primary-500/50"
+							className="swiper-button-next hidden absolute top-1/2 -translate-y-1/2 -right-20 w-8 h-8 lg:w-12 lg:h-12 rounded-full lg:flex items-center justify-center bg-primary-500/5 hover:bg-primary-500/50"
 						>
 							<svg
 								xmlns="http://www.w3.org/2000/svg"
 								width={20}
 								height={20}
 								fill="currentColor"
-								className="bi bi-arrow-right"
+								className="bi bi-chevron-right"
 								viewBox="0 0 16 16"
 							>
 								<path
 									fillRule="evenodd"
-									d="M1 8a.5.5 0 0 1 .5-.5h11.793l-3.147-3.146a.5.5 0 0 1 .708-.708l4 4a.5.5 0 0 1 0 .708l-4 4a.5.5 0 0 1-.708-.708L13.293 8.5H1.5A.5.5 0 0 1 1 8"
+									d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708"
 								/>
 							</svg>
 						</button>
 					</div>
 				</div>
-				<div id="media" className="flex flex-col gap-10 py-24">
+				<div id="media" className="flex flex-col gap-10 py-24 px-4 lg:px-0">
 					<div className="flex items-center justify-between">
-						<div className="flex flex-col gap-4">
-							<p className="text-5xl font-semibold font-Open-sans">
-								Media
-							</p>
+						<div className="flex flex-col lg:gap-4 gap-2">
+							<p className="lg:text-5xl text-3xl font-semibold font-Open-sans">Media</p>
 							<div className="w-[70%] h-[4px] bg-primary-500" />
+						</div>
+						<div className="flex items-center gap-5 lg:hidden">
+							<button
+								onClick={() => swiperRef.current?.slidePrev()}
+								className="swiper-button-prev w-8 h-8 lg:w-12 lg:h-12 rounded-full flex items-center justify-center bg-primary-500/5 hover:bg-primary-500/50"
+							>
+								<svg
+									xmlns="http://www.w3.org/2000/svg"
+									width={20}
+									height={20}
+									fill="currentColor"
+									className="bi bi-chevron-left"
+									viewBox="0 0 16 16"
+								>
+									<path
+										fillRule="evenodd"
+										d="M11.354 1.646a.5.5 0 0 1 0 .708L5.707 8l5.647 5.646a.5.5 0 0 1-.708.708l-6-6a.5.5 0 0 1 0-.708l6-6a.5.5 0 0 1 .708 0"
+									/>
+								</svg>
+							</button>
+							<button
+								onClick={() => swiperRef.current?.slideNext()}
+								className="swiper-button-next w-8 h-8 lg:w-12 lg:h-12 rounded-full flex items-center justify-center bg-primary-500/5 hover:bg-primary-500/50"
+							>
+								<svg
+									xmlns="http://www.w3.org/2000/svg"
+									width={20}
+									height={20}
+									fill="currentColor"
+									className="bi bi-chevron-right"
+									viewBox="0 0 16 16"
+								>
+									<path
+										fillRule="evenodd"
+										d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708"
+									/>
+								</svg>
+							</button>
 						</div>
 					</div>
 					<div className="relative">
@@ -219,54 +282,47 @@ const Engagement = () => {
 							className="mySwiper w-full px-8"
 						>
 							{mediaImages.map((item, index) => (
-								<SwiperSlide
-									className="w-full flex flex-col gap-3 group"
-									key={index}
-								>
-									<img
-										src={item}
-										alt=""
-										className="w-full h-96 object-cover"
-									/>
+								<SwiperSlide className="w-full flex flex-col gap-3 group" key={index}>
+									<img src={item} alt="" className="w-full h-96 object-cover" />
 								</SwiperSlide>
 							))}
 						</Swiper>
 						<button
-								onClick={() => swiperRef.current?.slidePrev()}
-								className="swiper-button-prev absolute top-1/2 -translate-y-1/2 -left-20 w-8 h-8 lg:w-12 lg:h-12 rounded-full flex items-center justify-center bg-primary-500 hover:bg-primary-500/50"
+							onClick={() => swiperRef.current?.slidePrev()}
+							className="swiper-button-prev hidden absolute top-1/2 -translate-y-1/2 -left-20 w-8 h-8 lg:w-12 lg:h-12 rounded-full lg:flex items-center justify-center bg-primary-500/5 hover:bg-primary-500/50"
+						>
+							<svg
+								xmlns="http://www.w3.org/2000/svg"
+								width={20}
+								height={20}
+								fill="currentColor"
+								className="bi bi-chevron-left"
+								viewBox="0 0 16 16"
 							>
-								<svg
-									xmlns="http://www.w3.org/2000/svg"
-									width={16}
-									height={16}
-									fill="currentColor"
-									className="bi bi-arrow-left"
-									viewBox="0 0 16 16"
-								>
-									<path
-										fillRule="evenodd"
-										d="M15 8a.5.5 0 0 0-.5-.5H2.707l3.147-3.146a.5.5 0 1 0-.708-.708l-4 4a.5.5 0 0 0 0 .708l4 4a.5.5 0 0 0 .708-.708L2.707 8.5H14.5A.5.5 0 0 0 15 8"
-									/>
-								</svg>
-							</button>
-							<button
-								onClick={() => swiperRef.current?.slideNext()}
-								className="swiper-button-next absolute top-1/2 -translate-y-1/2 -right-20 w-8 h-8 lg:w-12 lg:h-12 rounded-full flex items-center justify-center bg-primary-500 hover:bg-primary-500/50"
+								<path
+									fillRule="evenodd"
+									d="M11.354 1.646a.5.5 0 0 1 0 .708L5.707 8l5.647 5.646a.5.5 0 0 1-.708.708l-6-6a.5.5 0 0 1 0-.708l6-6a.5.5 0 0 1 .708 0"
+								/>
+							</svg>
+						</button>
+						<button
+							onClick={() => swiperRef.current?.slideNext()}
+							className="swiper-button-next hidden absolute top-1/2 -translate-y-1/2 -right-20 w-8 h-8 lg:w-12 lg:h-12 rounded-full lg:flex items-center justify-center bg-primary-500/5 hover:bg-primary-500/50"
+						>
+							<svg
+								xmlns="http://www.w3.org/2000/svg"
+								width={20}
+								height={20}
+								fill="currentColor"
+								className="bi bi-chevron-right"
+								viewBox="0 0 16 16"
 							>
-								<svg
-									xmlns="http://www.w3.org/2000/svg"
-									width={16}
-									height={16}
-									fill="currentColor"
-									className="bi bi-arrow-right"
-									viewBox="0 0 16 16"
-								>
-									<path
-										fillRule="evenodd"
-										d="M1 8a.5.5 0 0 1 .5-.5h11.793l-3.147-3.146a.5.5 0 0 1 .708-.708l4 4a.5.5 0 0 1 0 .708l-4 4a.5.5 0 0 1-.708-.708L13.293 8.5H1.5A.5.5 0 0 1 1 8"
-									/>
-								</svg>
-							</button>
+								<path
+									fillRule="evenodd"
+									d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708"
+								/>
+							</svg>
+						</button>
 					</div>
 				</div>
 			</div>

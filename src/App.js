@@ -16,22 +16,23 @@ import ContactUs from "./Pages/ContactUs";
 
 const App = () => {
 	return (
-        <Router>
+		<Router>
 			<Header />
-            <Routes>
-                <Route path="/" element={<HomePage />} />
-                <Route path="/about" element={<AboutUs />} />
-                <Route path="/people" element={<People />} />
-                <Route path="/people/:role" element={<People />} />
-                <Route path="/project/:project" element={<ProjectDetails />} />
-                <Route path="/engagement" element={<Engagement />} />
-                <Route path="/work-with-us" element={<WorkWithUs />} />
-                <Route path="/work-with-us/:role" element={<WorkWithUs />} />
-                <Route path="*" element={<h1 className="py-[7.25rem] mt-20 text-primary-600 text-center text-6xl font-bold font-Open-sans">Page not found</h1>} />
-            </Routes>
+			<Routes>
+				<Route path="/" element={<HomePage />} />
+				<Route path="/about" element={<AboutUs />} />
+				{/* <Route path="/contact-us" element={<ContactUs />} /> */}
+				<Route path="/people" element={<People />} />
+				<Route path="/people/:role" element={<People />} />
+				<Route path="/project/:project" element={<ProjectDetails />} />
+				<Route path="/engagement" element={<Engagement />} />
+				<Route path="/work-with-us" element={<WorkWithUs />} />
+				<Route path="/work-with-us/:role" element={<WorkWithUs />} />
+				<Route path="*" element={<div className="w-full h-screen relative"><h1 className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-primary-500 text-center text-6xl font-bold font-Open-sans leading-[70px] lg:leading-normal lg:whitespace-nowrap capitalize">Page not found</h1></div>} />
+			</Routes>
 			<Footer />
-        </Router>
-    );
+		</Router>
+	);
 };
 
 export default App;
