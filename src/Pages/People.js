@@ -210,10 +210,10 @@ const People = () => {
 				</ul>
 				<div className="w-full relative md:hidden block">
 					<div
-						className="flex items-center justify-between border border-black pr-4 rounded-xl overflow-hidden bg-gray-400"
+						className="flex items-center justify-between border pr-4 rounded-xl overflow-hidden border-primary-600"
 						onClick={() => setFilter(!filter)}
 					>
-						<p className="border-r border-black w-[89%] px-3 py-2 bg-gray-200 backdrop-blur-lg">{currDesignation}</p>
+						<p className="border-r border-primary-600 w-[89%] px-3 py-2">{currDesignation}</p>
 						<svg
 							xmlns="http://www.w3.org/2000/svg"
 							width={16}

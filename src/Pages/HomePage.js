@@ -324,22 +324,22 @@ const HomePage = () => {
 						<p className="text-5xl font-semibold font-Open-sans capitalize">Resources</p>
 						<div className="w-[9%] h-[4px] bg-primary-500" />
 					</div>
-					<div className="w-full grid lg:grid-cols-4 md:grid-cols-2 grid-cols-1 gap-4">
-						<div className="w-full h-full aspect-square rounded-xl px-7 border flex flex-col gap-5 items-start justify-center group hover:border-primary-500 hover:shadow-[0_0_60px_0_rgba(0,0,0,.07)] transition-all duration-300">
-							<p className="text-4xl font-bold group-hover:text-primary-500 transition-all duration-300">1492</p>
-							<p>Laboratories in 100+ states</p>
+					<div className="w-full grid lg:grid-cols-4 grid-cols-2 gap-4">
+						<div className="w-full h-full aspect-square rounded-xl md:px-7 px-3 border flex flex-col md:gap-5 gap-2 items-start justify-center group hover:border-primary-500 hover:shadow-[0_0_60px_0_rgba(0,0,0,.07)] transition-all duration-300">
+							<p className="md:text-4xl text-2xl font-bold group-hover:text-primary-500 transition-all duration-300">1492</p>
+							<p className="md:text-base text-sm">Laboratories in 100+ states</p>
 						</div>
-						<div className="w-full h-full aspect-square rounded-xl px-7 border flex flex-col gap-5 items-start justify-center group hover:border-primary-500 hover:shadow-[0_0_60px_0_rgba(0,0,0,.07)] transition-all duration-300">
-							<p className="text-4xl font-bold group-hover:text-primary-500 transition-all duration-300">52</p>
-							<p>Laboratories in 100+ states</p>
+						<div className="w-full h-full aspect-square rounded-xl md:px-7 px-3 border flex flex-col md:gap-5 gap-2 items-start justify-center group hover:border-primary-500 hover:shadow-[0_0_60px_0_rgba(0,0,0,.07)] transition-all duration-300">
+							<p className="md:text-4xl text-2xl font-bold group-hover:text-primary-500 transition-all duration-300">52</p>
+							<p className="md:text-base text-sm">Laboratories in 100+ states</p>
 						</div>
-						<div className="w-full h-full aspect-square rounded-xl px-7 border flex flex-col gap-5 items-start justify-center group hover:border-primary-500 hover:shadow-[0_0_60px_0_rgba(0,0,0,.07)] transition-all duration-300">
-							<p className="text-4xl font-bold group-hover:text-primary-500 transition-all duration-300">1256</p>
-							<p>Laboratories in 100+ states</p>
+						<div className="w-full h-full aspect-square rounded-xl md:px-7 px-3 border flex flex-col md:gap-5 gap-2 items-start justify-center group hover:border-primary-500 hover:shadow-[0_0_60px_0_rgba(0,0,0,.07)] transition-all duration-300">
+							<p className="md:text-4xl text-2xl font-bold group-hover:text-primary-500 transition-all duration-300">1256</p>
+							<p className="md:text-base text-sm">Laboratories in 100+ states</p>
 						</div>
-						<div className="w-full h-full aspect-square rounded-xl px-7 border flex flex-col gap-5 items-start justify-center group hover:border-primary-500 hover:shadow-[0_0_60px_0_rgba(0,0,0,.07)] transition-all duration-300">
-							<p className="text-4xl font-bold group-hover:text-primary-500 transition-all duration-300">560</p>
-							<p>Laboratories in 100+ states</p>
+						<div className="w-full h-full aspect-square rounded-xl md:px-7 px-3 border flex flex-col md:gap-5 gap-2 items-start justify-center group hover:border-primary-500 hover:shadow-[0_0_60px_0_rgba(0,0,0,.07)] transition-all duration-300">
+							<p className="md:text-4xl text-2xl font-bold group-hover:text-primary-500 transition-all duration-300">560</p>
+							<p className="md:text-base text-sm">Laboratories in 100+ states</p>
 						</div>
 					</div>
 				</div>
